@@ -1,0 +1,22 @@
+.cardTestim {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    position: relative;
+    height: 50vh;
+}
+
+.circle::before {
+    content: ', ,';
+    color: #FFF;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0D68A1;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
