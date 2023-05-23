@@ -186,69 +186,69 @@ export const SalseEditPage = Loadable(
 //     lazy(() => import("../pages/dashboard/consulting/ConsoltingProfilePage"))
 // );
 
-export const ConsoltingListPage = Loadable(
-    lazy(() => import("../pages/dashboard/consulting/ConsultingListPage"))
-);
-export const ConsoltingOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/consulting/ConsultingOrderListPage"))
-);
+// export const ConsoltingListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/consulting/ConsultingListPage"))
+// );
+// export const ConsoltingOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/consulting/ConsultingOrderListPage"))
+// );
 
-export const ConsoltingCreatePage = Loadable(
-    lazy(() => import("../pages/dashboard/consulting/ConsultingCreatePage"))
-);
-export const ConsoltingEditPage = Loadable(
-    lazy(() => import("../pages/dashboard/consulting/ConsultingEditPage"))
-);
+// export const ConsoltingCreatePage = Loadable(
+//     lazy(() => import("../pages/dashboard/consulting/ConsultingCreatePage"))
+// );
+// export const ConsoltingEditPage = Loadable(
+//     lazy(() => import("../pages/dashboard/consulting/ConsultingEditPage"))
+// );
 
 // DASHBOARD: COURSES
-export const CourseListPage = Loadable(
-    lazy(() => import("../pages/dashboard/course/CourseListPage"))
-);
-export const CourseOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/course/CourseOrderListPage"))
-);
+// export const CourseListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/course/CourseListPage"))
+// );
+// export const CourseOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/course/CourseOrderListPage"))
+// );
 
-export const CourseCreatePage = Loadable(
-    lazy(() => import("../pages/dashboard/course/CourseCreatePage"))
-);
-export const CourseEditPage = Loadable(
-    lazy(() => import("../pages/dashboard/course/CourseEditPage"))
-);
+// export const CourseCreatePage = Loadable(
+//     lazy(() => import("../pages/dashboard/course/CourseCreatePage"))
+// );
+// export const CourseEditPage = Loadable(
+//     lazy(() => import("../pages/dashboard/course/CourseEditPage"))
+// );
 
 // DASHBOARD: SERVICE
-export const ServiceListPage = Loadable(
-    lazy(() => import("../pages/dashboard/service/ServiceListPage"))
-);
+// export const ServiceListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/service/ServiceListPage"))
+// );
 
-export const ServiceCreatePage = Loadable(
-    lazy(() => import("../pages/dashboard/service/ServiceCreatePage"))
-);
-export const ServiceEditPage = Loadable(
-    lazy(() => import("../pages/dashboard/service/ServiceEditPage"))
-);
+// export const ServiceCreatePage = Loadable(
+//     lazy(() => import("../pages/dashboard/service/ServiceCreatePage"))
+// );
+// export const ServiceEditPage = Loadable(
+//     lazy(() => import("../pages/dashboard/service/ServiceEditPage"))
+// );
 
 // DASHBOARD: SERVICE TYPE
-export const ServiceTypeListPage = Loadable(
-    lazy(() => import("../pages/dashboard/serviceType/ServiceTypeListPage"))
-);
+// export const ServiceTypeListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/serviceType/ServiceTypeListPage"))
+// );
 
-export const ServiceTypeCreatePage = Loadable(
-    lazy(() => import("../pages/dashboard/serviceType/ServiceTypeCreatePage"))
-);
-export const ServiceTypeEditPage = Loadable(
-    lazy(() => import("../pages/dashboard/serviceType/ServiceTypeEditPage"))
-);
+// export const ServiceTypeCreatePage = Loadable(
+//     lazy(() => import("../pages/dashboard/serviceType/ServiceTypeCreatePage"))
+// );
+// export const ServiceTypeEditPage = Loadable(
+//     lazy(() => import("../pages/dashboard/serviceType/ServiceTypeEditPage"))
+// );
 
-// DASHBOARD: BLOG
-export const BlogPostsPage = Loadable(
-    lazy(() => import("../pages/dashboard/BlogPostsPage"))
-);
-export const BlogPostPage = Loadable(
-    lazy(() => import("../pages/dashboard/BlogPostPage"))
-);
-export const BlogNewPostPage = Loadable(
-    lazy(() => import("../pages/dashboard/BlogNewPostPage"))
-);
+// // DASHBOARD: BLOG
+// export const BlogPostsPage = Loadable(
+//     lazy(() => import("../pages/dashboard/BlogPostsPage"))
+// );
+// export const BlogPostPage = Loadable(
+//     lazy(() => import("../pages/dashboard/BlogPostPage"))
+// );
+// export const BlogNewPostPage = Loadable(
+//     lazy(() => import("../pages/dashboard/BlogNewPostPage"))
+// );
 
 // DASHBOARD: FILE MANAGER
 export const FileManagerPage = Loadable(

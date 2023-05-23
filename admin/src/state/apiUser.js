@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
   baseQuery: fetchBaseQuery({
     mode: 'cors',
-    baseUrl: 'http://localhost:8000/api/v1/', prepareHeaders: (headers, { getState }) => {
+    baseUrl: 'https://api.reheltk.net/api/v1', prepareHeaders: (headers, { getState }) => {
       headers.set('Authorization', `Bearer ${localStorage.getItem('accessToken')}`)
       return headers
     }
