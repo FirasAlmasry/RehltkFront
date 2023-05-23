@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
+import HeadBot from "./HeadBot";
 
 function Header() {
     return (
@@ -34,6 +35,7 @@ function Header() {
                     }}
                 />
             </Carousel>
+            <HeadBot />
         </>
     );
 }

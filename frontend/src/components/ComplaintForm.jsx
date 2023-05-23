@@ -10,31 +10,37 @@ import {
 import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import * as Yup from "yup";
+// form
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import { useAddComplaintMutation } from "../state/ApiComplaint";
+
 function ComplaintForm() {
-    const [name, setName] = useState(null);
-    const [phone, setPhone] = useState(null);
-    const [desc, setDesc] = useState(null);
+    const NewComplaintSchema = Yup.object().shape({
+        name: Yup.string().required("name ar is required"),
+        description :Yup.string().required("description ar is required"),
+        email: Yup.string().required("Email is required"),
+        phone: Yup.string().required("phone is required"),
+    });
+    const {register, handleSubmit } = useForm({
+        
+        resolver: yupResolver(NewComplaintSchema),
+    });
+    // console.log("🚀 ~ file: ComplaintForm.jsx:32 ~ ComplaintForm ~ register:", register)
+
     const [ok, setOk] = useState(null);
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
-
+    const [addComplaint, { isLoading }] = useAddComplaintMutation()
+    const onSubmit = async (data) => {
+        console.log(data);
         try {
-            const data = {
-                phone,
-                name,
-                desc,
-
-                date: Date.now(),
-            };
-            const res = await axios.post(
-                "http://localhost:8000/addComplaint",
-                data
-            );
-            if (res.status === 200) setOk(true);
+            await addComplaint(data)
+            console.log("DATA", data);
         } catch (error) {
-            setOk(false);
+            console.error(error);
         }
     };
     return (
@@ -58,7 +64,7 @@ function ComplaintForm() {
                     حدث مشكلة اثناء ارسال الطلب برجاء المحاولة مره اخرى بعد قليل
                 </Alert>
             )}
-            <Box component="form" gap={20} onSubmit={submitHandler}>
+            <Box component="form" gap={20} onSubmit={handleSubmit(onSubmit)}>
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                     <PermIdentityOutlinedIcon />
                     <Typography
@@ -75,7 +81,9 @@ function ComplaintForm() {
                 <TextField
                     fullWidth
                     required
-                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    {...register('name')}
+                    // onChange={(e) => setname(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -98,7 +106,34 @@ function ComplaintForm() {
                 <TextField
                     fullWidth
                     required
-                    onChange={(e) => setPhone(e.target.value)}
+                    name="phone"
+                    {...register('phone')}
+                    // onChange={(e) => setPhone(e.target.value)}
+                    sx={{
+                        mb: 1,
+                        backgroundColor: "#FFF",
+                        borderBottom: "1px solid",
+                    }}
+                />
+                <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <EmailOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        الأيميل:
+                    </Typography>
+                </Box>
+                <TextField
+                    fullWidth
+                    required
+                    name="email"
+                    {...register('email')}
+                    // onChange={(e) => setemail(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -121,7 +156,9 @@ function ComplaintForm() {
                 <TextField
                     fullWidth
                     required
-                    onChange={(e) => setDesc(e.target.value)}
+                    name="description"
+                    {...register('description')}
+                    // onChange={(e) => setDesc(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",

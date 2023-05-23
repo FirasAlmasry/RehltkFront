@@ -1,0 +1,73 @@
+http://localhost:8000/api/v1/
+Get : to get data
+Post: to add data
+Patch: to update data
+Delete: to delete data
+
+
+
+auth  Route
+auth/login  post
+auth/signup   post
+auth/reset-password-request post
+auth/reset-password    post
+
+
+User route
+/users  get
+/users/search  get
+/users  post
+/users/id   patch
+/users/id   delete
+
+user orders route
+/user-orders  get
+/user-orders/search  get
+/user-orders  post
+/user-orders/id   patch
+/user-orders/id   delete
+
+
+company orders route
+/company-orders  get
+/company-orders/search  get
+/company-orders  post
+/company-orders/id   patch
+/company-orders/id   delete
+
+complaints  route
+/complaints  get
+/complaints/search  get
+/complaints  post 
+/complaints/id   patch
+/complaints/id   delete
+
+employment applications    route
+/employment-applications  get
+/employment-applications/search  get
+/employment-applications  post
+/employment-applications/id   patch
+/employment-applications/id   delete
+
+ country route
+/country  get
+/country/search  get
+/country  post
+/country/id   patch
+/country/id   delete
+
+
+country tours   route
+/country-tours     get
+/country-tours/search  get
+/country-tours  post
+/country-tours/id   patch
+/country-tours/id   delete
+
+
+sales   route
+/sales  get
+/sales/search  get
+/sales  post
+/sales/id   patch
+/sales/id   delete

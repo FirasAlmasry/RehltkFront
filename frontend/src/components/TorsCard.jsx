@@ -2,28 +2,29 @@ import { Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function TorsCard() {
+function TorsCard({name,imageUrl,id}) {
     const navigate = useNavigate();
-
+    
     return (
         <Card
             sx={{
                 position: "relative",
                 display: "flex",
                 justifyContent: "center",
-                borderRadius: "120px",
+                borderRadius: "60px",
                 overflow: "inherit",
                 margin: "10px",
                 cursor: "pointer",
             }}
-            onClick={() => navigate("/tours")}
+            height="300px"
+            onClick={() => navigate(`/tours/${id}`)}
         >
             <CardMedia
                 component="img"
-                height="180px"
-                image="images/tours.jpg"
+                height="300px"
+                image={imageUrl}
                 alt="green iguana"
-                style={{ borderRadius: "120px" }}
+                style={{ borderRadius: "60px" }}
             />
             <Typography
                 gutterBottom
@@ -46,7 +47,7 @@ function TorsCard() {
                     paddingBottom: 2,
                 }}
             >
-                جورجيا
+                {name}
             </Typography>
         </Card>
     );

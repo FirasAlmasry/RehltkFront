@@ -7,7 +7,7 @@ import TravlForm from '../components/TravlForm'
 function NestTour() {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <Section title="رحلات سياحية في ماليزيا">
                 <ToursCity />
             </Section>

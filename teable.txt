@@ -1,0 +1,63 @@
+user:
+- name
+- email
+- phone
+- roles [string]
+
+Employment application:
+- name
+- email
+- address
+- phone
+- description
+
+company Orders:
+- companyName
+- name
+- email
+- address
+- phone
+- description
+
+
+user orders:
+- name
+- email
+- address
+- phone
+- description
+
+complaint:
+- name
+- email
+- phone
+- description
+
+
+country:
+- name
+- description
+- imageUrl
+- tours [tour]
+
+tour:
+- country
+- title
+- subTitle
+- description
+- price
+- imageUrl
+
+salse:
+- employee
+- name
+- email
+- phone
+- country
+- agent
+- packageWithoutFlightCost
+- flightCost
+- packagePrice
+
+
+

@@ -13,9 +13,17 @@ import {
     Typography,
 } from "@mui/material";
 import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import AirplanemodeActiveOutlinedIcon from '@mui/icons-material/AirplanemodeActiveOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import axios from "axios";
+
+import * as Yup from "yup";
+// form
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useAddUserOrderMutation } from "../state/ApiUserOrders";
 const countrys = [
     "جورجيا ",
     "البوسنة ",
@@ -47,32 +55,56 @@ const citys = [
 ];
 
 function TravlForm() {
-    const [phone, setPhone] = useState(null);
-    const [city, setCity] = useState(null);
-    const [country, setCountry] = useState(null);
-    const [bookingFlight, setBookingFlight] = useState(null);
+    // const [phone, setPhone] = useState(null);
+    // const [city, setCity] = useState(null);
+    // const [country, setCountry] = useState(null);
+    // const [bookingFlight, setBookingFlight] = useState(null);
+    // const [ok, setOk] = useState(null);
+    const NewComplaintSchema = Yup.object().shape({
+        name: Yup.string().required("title ar is required"),
+        description :Yup.string().required("description ar is required"),
+        email: Yup.string().required("Email is required"),
+        address: Yup.string().required("Address is required"),
+        phone: Yup.string().required("phone is required"),
+    });
+    const {register, handleSubmit } = useForm({
+        
+        resolver: yupResolver(NewComplaintSchema),
+    });
+    // console.log("🚀 ~ file: ComplaintForm.jsx:32 ~ ComplaintForm ~ register:", register)
+
     const [ok, setOk] = useState(null);
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
-
+    const [addUserOrder, { isLoading }] = useAddUserOrderMutation()
+    const onSubmit = async (data) => {
+        console.log(data);
         try {
-            const data = {
-                phone,
-                city,
-                country,
-                bookingFlight,
-                date: Date.now(),
-            };
-            const res = await axios.post(
-                "http://localhost:8000/addOrder",
-                data
-            );
-            if (res.status === 200) setOk(true);
+            await addUserOrder(data)
+            console.log("DATA", data);
         } catch (error) {
-            setOk(false);
+            console.error(error);
         }
     };
+    // const submitHandler = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         const data = {
+    //             phone,
+    //             city,
+    //             country,
+    //             bookingFlight,
+    //             date: Date.now(),
+    //         };
+    //         const res = await axios.post(
+    //             "http://localhost:8000/addOrder",
+    //             data
+    //         );
+    //         if (res.status === 200) setOk(true);
+    //     } catch (error) {
+    //         setOk(false);
+    //     }
+    // };
     return (
         <Box>
             <Typography
@@ -95,26 +127,101 @@ function TravlForm() {
                     حدث مشكلة اثناء ارسال الطلب برجاء المحاولة مره اخرى بعد قليل
                 </Alert>
             )}
-            <Box component="form" gap={20} onSubmit={submitHandler}>
+            <Box component="form" gap={20} onSubmit={handleSubmit(onSubmit)}>
                 <Box display={"flex"} gap={2} alignItems={"center"}>
-                <PhoneEnabledOutlinedIcon />
-                <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{
-                        mb: 1,
-                        maxWidth: 600,
-                    }}
-                >
-                    الجوال:
-                </Typography>
+                    <PermIdentityOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        اسمك الكريم
+                    </Typography>
+                    
                 </Box>
                 <TextField
-                    placeholder="الجوال"
                     fullWidth
-                    name="phone"
-                    onChange={(e) => setPhone(e.target.value)}
+                    {...register('name')}
+                    // onChange={(e) => setPersonName(e.target.value)}
                     required
+                    sx={{
+                        mb: 1,
+
+                        backgroundColor: "#FFF",
+                        borderBottom: "1px solid",
+                    }}
+                />
+                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <ApartmentOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        اسم الشركة
+                    </Typography>
+                </Box>
+                <TextField
+                    fullWidth
+                    required
+                    {...register('companyName')}
+                    // onChange={(e) => setCoumpanyName(e.target.value)}
+                    sx={{
+                        mb: 1,
+                        backgroundColor: "#FFF",
+                        borderBottom: "1px solid",
+                    }}
+                /> */}
+                <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <PhoneEnabledOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        الجوال:
+                    </Typography>
+                </Box>
+                <TextField
+                    fullWidth
+                    required
+                    {...register('phone')}
+                    // onChange={(e) => setPhone(e.target.value)}
+                    sx={{
+                        mb: 1,
+                        backgroundColor: "#FFF",
+                        borderBottom: "1px solid",
+                    }}
+                />
+                <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <EmailOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        البريد الالكتروني:
+                    </Typography>
+                </Box>
+                <TextField
+                    type={"emile"}
+                    fullWidth
+                    required
+                    {...register('email')}
+                    // onChange={(e) => setEmail(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -131,17 +238,23 @@ function TravlForm() {
                             maxWidth: 600,
                         }}
                     >
-                        مدينتك:
+                        المدينة:
                     </Typography>
                 </Box>
                 <TextField
                     fullWidth
                     select
                     placeholder="مدينتك"
-                    name="city"
-                    defaultValue={"--"}
+                    defaultValue={"---"}
+                    {...register('address')}
+                    // onChange={(e) => setCity(e.target.value)}/**
+                    //  companyName
+                    //  name
+                    //  description
+                    //  email
+                    //  address
+                    //  phone */
                     required
-                    onChange={(e) => setCity(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -155,7 +268,7 @@ function TravlForm() {
                     ))}
                 </TextField>
                 <Box display={"flex"} gap={2} alignItems={"center"}>
-                    <AirplanemodeActiveOutlinedIcon />
+                    <ForumOutlinedIcon />
                     <Typography
                         variant="h6"
                         component="h3"
@@ -164,63 +277,21 @@ function TravlForm() {
                             maxWidth: 600,
                         }}
                     >
-                        وين حاب تسافر:
+                        وصف الطلب
                     </Typography>
                 </Box>
                 <TextField
                     fullWidth
-                    select
-                    placeholder="وين حاب تسافر"
-                    defaultValue="--"
+                    {...register('description')}
+                    // onChange={(e) => setDesc(e.target.value)}
                     required
-                    name="country"
-                    onChange={(e) => setCountry(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
                         borderBottom: "1px solid",
                     }}
-                >
-                    {countrys.map((country) => (
-                        <MenuItem key={country} value={country}>
-                            {country}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{
-                        mb: 1,
-                        maxWidth: 600,
-                    }}
-                >
-                    هل تم حجز الطيران؟
-                </Typography>
-                <FormControl
-                    color="secondary"
-                    required
-                    onChange={(e) => setBookingFlight(e.target.value)}
-                >
-                    <RadioGroup row name="bookingFlight">
-                        <FormControlLabel
-                            value="نعم"
-                            control={<Radio color="secondary" />}
-                            label="نعم"
-                        />
-                        <FormControlLabel
-                            value="لا"
-                            control={<Radio color="secondary" />}
-                            label="لا"
-                        />
-                    </RadioGroup>
-                </FormControl>
+                />
                 <br />
-                <br />
-                <FormLabel>
-                    *جميع الأسعار في الموقع تشمل قيمة الضريبة المضافة
-                </FormLabel>
-
                 <br />
                 <Button
                     type="submit"
@@ -232,7 +303,6 @@ function TravlForm() {
                         mt: 1,
                         mb: 1,
                         color: "white",
-                        fontSize: 18,
                     }}
                 >
                     ارسال

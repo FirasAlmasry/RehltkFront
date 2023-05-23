@@ -24,9 +24,9 @@ function App() {
                 <Route path="/companies" element={<Companies />} />
                 <Route path="/complaint" element={<Complaint />} />
                 <Route path="/employment" element={<Employment />} />
-                <Route path="/tours" element={<NestTour />} />
-                <Route path="/tourCity" element={<NestTourCard />} />
-                <Route path="/tourDetails" element={<ToursDetiles />} />
+                <Route path="/tours/:id" element={<NestTour />} />
+                <Route path="/tourCity/:id" element={<NestTourCard />} />
+                <Route path="/tourDetails/:id" element={<ToursDetiles />} />
                 {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
             <Footer />

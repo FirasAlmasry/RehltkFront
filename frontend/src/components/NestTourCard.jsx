@@ -2,7 +2,7 @@ import { Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function NestTourCard() {
+function NestTourCard({name,imageUrl,id}) {
     const navigate = useNavigate();
   return (
     <Card
@@ -14,14 +14,15 @@ function NestTourCard() {
                 overflow: "inherit",
                 margin: "10px",
                 cursor: "pointer",
+                height:"350px"
             }}
-            onClick={() => navigate("/tourDetails")}
+            onClick={() => navigate(`/tourDetails/${id}`)}
         >
             <CardMedia
                 component="img"
-                image="images/tours.jpg"
+                image={imageUrl}
                 alt="green iguana"
-                style={{ borderRadius: "200px" }}
+                style={{ borderRadius: "200px",height:"350px" }}
             />
 
             <Typography
@@ -45,7 +46,7 @@ function NestTourCard() {
                     paddingBottom: 2,
                 }}
             >
-                جورجيا
+                {name}
             </Typography>
         </Card>
   )

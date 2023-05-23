@@ -1,47 +1,31 @@
 import { Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TorsCard from "./TorsCard";
+import { useGetCountryQuery } from "../state/ApiCountry";
 
 function ToursList() {
+    const [allCountryData, setAllCountryData] = useState([]);
+    const { data, isLoading } = useGetCountryQuery();
+    console.log("🚀 ~ file: TorsCard.jsx:10 ~ TorsCard ~ data:", data)
+    useEffect(() => {
+        if (data) {
+            setAllCountryData(data.data.countrys)
+        }
+    }, [data])
     return (
         <>
             <Grid container spacing={4}>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <TorsCard />
-                </Grid>
+                {
+                    allCountryData.map((country) => 
+                        <Grid item xs={12} md={4}>
+                            <TorsCard 
+                            name={country.name}
+                            imageUrl={country.imageUrl}
+                            id={country._id}
+                            />
+                        </Grid>
+                    )
+                }
             </Grid>
         </>
     );

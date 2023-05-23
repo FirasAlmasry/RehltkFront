@@ -105,7 +105,7 @@ function Footer() {
                     position: "absolute",
                     right: "0"
              }}></Typography>
-            <SotialIcon />
+            {/* <SotialIcon /> */}
             <Typography style={{ 
                     borderBottom: "40px solid #0d68a2",
                     height: "0",
