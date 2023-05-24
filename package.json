@@ -1,0 +1,19 @@
+{
+  "name": "rehltkfront",
+  "version": "1.0.0",
+  "description": "Finall",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"Finall\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MazidEg/Rehltk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MazidEg/Rehltk/issues"
+  },
+  "homepage": "https://github.com/MazidEg/Rehltk#readme"
+}
