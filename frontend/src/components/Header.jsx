@@ -13,7 +13,7 @@ function Header() {
                 }}
             >
                 <img
-                    src="images/Artboard-1-15.png"
+                    src="images/بانر/Azerbaijanموقع.jpg"
                     alt=""
                     style={{
                         height: 500,
@@ -24,7 +24,7 @@ function Header() {
                     }}
                 />
                 <img
-                    src="images/Artboard-1-1-1.png"
+                    src="images/بانر/اندونيسيا موقع2.jpg"
                     alt=""
                     style={{
                         height: 500,
@@ -34,6 +34,51 @@ function Header() {
                         borderBottomRightRadius: "20px",
                     }}
                 />
+                <img
+                    src="images/بانر/تايلاند موقع.jpg"
+                    alt=""
+                    style={{
+                        height: 500,
+                        width: "100%",
+                        objectFit: "fill",
+                        borderBottomLeftRadius: "20px",
+                        borderBottomRightRadius: "20px",
+                    }}
+                />
+                <img
+                    src="images/بانر/تركيا موقع.jpg"
+                    alt=""
+                    style={{
+                        height: 500,
+                        width: "100%",
+                        objectFit: "fill",
+                        borderBottomLeftRadius: "20px",
+                        borderBottomRightRadius: "20px",
+                    }}
+                />
+                <img
+                    src="images/بانر/جورجيا موقع.jpg"
+                    alt=""
+                    style={{
+                        height: 500,
+                        width: "100%",
+                        objectFit: "fill",
+                        borderBottomLeftRadius: "20px",
+                        borderBottomRightRadius: "20px",
+                    }}
+                />
+                <img
+                    src="images/بانر/ماليزيا موقع2 .jpg"
+                    alt=""
+                    style={{
+                        height: 500,
+                        width: "100%",
+                        objectFit: "fill",
+                        borderBottomLeftRadius: "20px",
+                        borderBottomRightRadius: "20px",
+                    }}
+                />
+                
             </Carousel>
             <HeadBot />
         </>

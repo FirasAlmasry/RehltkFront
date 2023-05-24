@@ -16,12 +16,12 @@ function ToursList() {
         <>
             <Grid container spacing={4}>
                 {
-                    allCountryData.map((country) => 
+                    allCountryData.map((country) =>
                         <Grid item xs={12} md={4}>
-                            <TorsCard 
-                            name={country.name}
-                            imageUrl={country.imageUrl}
-                            id={country._id}
+                            <TorsCard
+                                name={country.name}
+                                imageUrl={country.imageUrl}
+                                id={country._id}
                             />
                         </Grid>
                     )

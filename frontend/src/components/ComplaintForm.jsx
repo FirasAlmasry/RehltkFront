@@ -25,7 +25,7 @@ function ComplaintForm() {
         email: Yup.string().required("Email is required"),
         phone: Yup.string().required("phone is required"),
     });
-    const {register, handleSubmit } = useForm({
+    const {register, handleSubmit, reset } = useForm({
         
         resolver: yupResolver(NewComplaintSchema),
     });
@@ -39,6 +39,7 @@ function ComplaintForm() {
         try {
             await addComplaint(data)
             console.log("DATA", data);
+            reset()
         } catch (error) {
             console.error(error);
         }

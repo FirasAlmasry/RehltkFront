@@ -6,12 +6,14 @@ import TravlForm from "../components/TravlForm";
 import Section from "../components/Ui/Section";
 import SotialIcon from "../components/SotialIcon";
 import CardBlog from "../components/CardBlog";
+import IconSo from "../components/IconSo";
 
 function Home() {
     return (
         <>
             <Header />
             <Section title="الوجهات السياحية الدولية">
+            <IconSo />
                 <ToursList />
             </Section>
             <Section title="اراء العملاء">

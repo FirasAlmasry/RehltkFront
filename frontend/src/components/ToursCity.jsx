@@ -15,7 +15,6 @@ function ToursCity() {
     }, [data])
     return (
         <>
-        {isLoading?'loading': 
             <Grid container spacing={4}>
                 {
                     countryData?.map((country) =>
@@ -30,7 +29,6 @@ function ToursCity() {
                 }
             </Grid>
         
-        }
         </>
     )
 }

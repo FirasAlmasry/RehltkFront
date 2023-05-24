@@ -53,7 +53,7 @@ function EmploymentForm() {
         address: Yup.string().required("Address is required"),
         phone: Yup.string().required("phone is required"),
     });
-    const {register, handleSubmit } = useForm({
+    const {register, handleSubmit, reset  } = useForm({
         
         resolver: yupResolver(NewComplaintSchema),
     });
@@ -67,6 +67,7 @@ function EmploymentForm() {
         try {
             await addEmployment(data)
             console.log("DATA", data);
+            reset()
         } catch (error) {
             console.error(error);
         }

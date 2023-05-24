@@ -3,7 +3,6 @@ import { CardMedia, Stack } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./SotialIcon.css"
-// import google from '../../public/images/Google G.svg'
 function SotialIcon() {
     return (
         <Stack direction="row" gap={3} justifyContent={"center"} margin={"0 1%"}>
@@ -22,10 +21,9 @@ function SotialIcon() {
                 image="images/Facebook.png"
                 alt="green iguana"
             />
-                {/* <Facebook sx={{ width:"100%", height:"100%" }} /> */}
             </Link>
             <Link
-                to="#"
+                to="https://www.instagram.com/reheltkksa/#"
                 style={{
                     color: "inherit",
                     textDecoration: "none",
@@ -39,10 +37,9 @@ function SotialIcon() {
                 image="images/Instagram.svg"
                 alt="green iguana"
             />
-                {/* <Instagram sx={{ width:"100%", height:"100%" }} /> */}
             </Link>
             <Link
-                to="#"
+                to="https://www.snapchat.com/add/reheltkksa?share_id=T2KhijA3B9c&locale=ar-AE"
                 style={{
                     color: "inherit",
                     textDecoration: "none",
@@ -53,27 +50,9 @@ function SotialIcon() {
                 <CardMedia
                 component="img"
                 height="40px"
-                image="images/Twitter.svg"
+                image="images/Snapchat_icon.webp"
                 alt="green iguana"
             />
-                {/* <Twitter sx={{ width:"100%", height:"100%" }}  /> */}
-            </Link>
-            <Link
-                to="#"
-                style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    fontSize: 15,
-                    fontWeight: "bold",
-                }}
-            >
-                <CardMedia
-                component="img"
-                height="40px"
-                image="images/Google G.svg"
-                alt="green iguana"
-            />
-                {/* <Google sx={{ width:"100%", height:"100%" }}  className='google'/> */}
             </Link>
         </Stack>
     )

@@ -7,22 +7,21 @@ function HeadBot() {
         <>
             <Box>
                 <Marquee autoFill={true} pauseOnHover={true} behavior='scroll' pauseOnClick={true} direction={'right'} speed={150} style={{
-                    backgroundColor: "#0D68A1",
-                    color: "#FFF",
-                    margin: "30px 0",
+                    backgroundColor: "#FFF",
+                    color: "#000",
+                    margin: "10px 0",
                     animation: ".8s alternate infinite ease-in",
-                    border: "5px solid #F4981D",
-                    fontSize: "20px"
+                    border: "1px solid #0d659d",
+                    fontSize: "20px",
+                    
                 }} >
-                        <Typography style={{ margin: "0 10px", cursor: "pointer" }} sx={{ "&.css-225ngu-MuiTypography-root:hover" : {
-                            color: "#000"
-                        } }} >I can be a React component, multiple React components, or just some text <span style={{ fontSize:"25px", color:"#F4981D", fontWeight: "bold"  }} >/.</span> </Typography>
-                        <Typography style={{ margin: "0 10px", cursor: "pointer" }} sx={{ "&.css-225ngu-MuiTypography-root:hover" : {
-                            color: "#000"
-                        } }} >I can be a React component, multiple React components, or just some text <span style={{ fontSize:"25px", color:"#F4981D", fontWeight: "bold"  }} >/.</span> </Typography>
-                        <Typography style={{ margin: "0 10px", cursor: "pointer" }} sx={{ "&.css-225ngu-MuiTypography-root:hover" : {
-                            color: "#000"
-                        } }} >I can be a React component, multiple React components, or just some text <span style={{ fontSize:"25px", color:"#F4981D", fontWeight: "bold"  }} >/.</span> </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >حجز برامج سياحية       . </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/ خطط لسفرتك بكل سهولة مع رحلتك للسفر والسياحة . </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/ رخصة دولية . </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/  حجز فنادق . </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/ تأشيرات سياحية. </Typography>
+                        <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/   حجز طيران. </Typography>
+                        {/* <Typography style={{ margin: "0 5px", cursor: "pointer",fontSize:"26px" }} >/ رخصة دولية . </Typography> */}
                 </Marquee>
             </Box>
         </>

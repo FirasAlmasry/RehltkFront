@@ -10,7 +10,6 @@ function NestTourCard({name,imageUrl,id}) {
                 position: "relative",
                 display: "flex",
                 justifyContent: "center",
-                borderRadius: "200px",
                 overflow: "inherit",
                 margin: "10px",
                 cursor: "pointer",
@@ -22,7 +21,7 @@ function NestTourCard({name,imageUrl,id}) {
                 component="img"
                 image={imageUrl}
                 alt="green iguana"
-                style={{ borderRadius: "200px",height:"350px" }}
+                style={{ height:"350px" }}
             />
 
             <Typography

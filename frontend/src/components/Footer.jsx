@@ -94,29 +94,6 @@ function Footer() {
 
             </Stack>
             <Typography fontWeight={"bold"}>جميع الحقوق محفوظة © رحلتك للسياحة 2021</Typography>
-            <Stack direction="row" gap={2} >
-            <Typography style={{ 
-                    borderBottom: "40px solid #0d68a2",
-                    height: "0",
-                    width: "40%",
-                    padding: 0,
-                    margin: 0,
-                    borderTopLeftRadius: "100px",
-                    position: "absolute",
-                    right: "0"
-             }}></Typography>
-            {/* <SotialIcon /> */}
-            <Typography style={{ 
-                    borderBottom: "40px solid #0d68a2",
-                    height: "0",
-                    width: "40%",
-                    padding: 0,
-                    margin: 0,
-                    borderTopRightRadius: "100px",
-                    position: "absolute",
-                    left: "0"
-             }}></Typography>
-            </Stack>
         </Box>
     );
 }
