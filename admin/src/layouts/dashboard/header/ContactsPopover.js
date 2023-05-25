@@ -13,7 +13,7 @@ import Scrollbar from '../../../components/scrollbar';
 import MenuPopover from '../../../components/menu-popover';
 import BadgeStatus from '../../../components/badge-status';
 import { IconButtonAnimate } from '../../../components/animate';
-
+import Avatar from '@mui/material/Avatar';
 // ----------------------------------------------------------------------
 
 const ITEM_HEIGHT = 64;
@@ -55,7 +55,7 @@ export default function ContactsPopover() {
           {_contacts.map((contact) => (
             <MenuItem key={contact.id} sx={{ height: ITEM_HEIGHT }}>
               <ListItemAvatar>
-                <CustomAvatar
+                <Avatar
                   src={contact.avatar}
                   BadgeProps={{
                     badgeContent: <BadgeStatus status={contact.status} />,

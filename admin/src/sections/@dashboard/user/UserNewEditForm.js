@@ -24,7 +24,11 @@ import FormProvider, {
   RHFTextField,
   RHFUploadAvatar,
 } from '../../../components/hook-form';
+import { IconButton, InputAdornment } from '@mui/material';
+
 import { useAddUserMutation, useEditUserMutation } from '../../../state/apiUser';
+import { useState } from 'react';
+import Iconify from '../../../components/iconify';
 // ----------------------------------------------------------------------
 
 UserNewEditForm.propTypes = {
@@ -33,7 +37,6 @@ UserNewEditForm.propTypes = {
 };
 
 export default function UserNewEditForm({ isEdit = false, currentUser }) {
-console.log("🚀 ~ file: UserNewEditForm.js:36 ~ UserNewEditForm ~ currentUser:", currentUser)
 
   const navigate = useNavigate();
 
@@ -89,7 +92,7 @@ console.log("🚀 ~ file: UserNewEditForm.js:36 ~ UserNewEditForm ~ currentUser:
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEdit, currentUser]);
-  
+  const [showPassword, setShowPassword] = useState(false);
   const [editUser, { isUserLoading }] = useEditUserMutation()
   const [addUser, { isLoading }] = useAddUserMutation()
   const onSubmit = async (formData) => {
@@ -97,16 +100,16 @@ console.log("🚀 ~ file: UserNewEditForm.js:36 ~ UserNewEditForm ~ currentUser:
       // eslint-disable-next-line no-lone-blocks
       {
         isEdit ?
-         await editUser({formData, id: currentUser._id}) 
+         await editUser({formData, id: currentUser._id}).unwrap()
         :
-         await addUser(formData)
+         await addUser(formData).unwrap()
       }
       reset();
       enqueueSnackbar(!isEdit ? 'Create success!' : 'Update success!');
       navigate(PATH_DASHBOARD.user.list);
       console.log('DATA', formData);
     } catch (error) {
-      enqueueSnackbar(error.message ||"ERROR")
+      enqueueSnackbar(error.data.message , {variant: 'error'})
       console.error(error);
     }
   };
@@ -138,7 +141,20 @@ console.log("🚀 ~ file: UserNewEditForm.js:36 ~ UserNewEditForm ~ currentUser:
                   ChipProps={{ size: 'small' }}
                 />
               {!isEdit&& 
-              <RHFTextField name="password" label="password" />
+              <RHFTextField
+              name="password"
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                      <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
               }
             </Box>
 

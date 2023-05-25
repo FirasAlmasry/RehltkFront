@@ -39,13 +39,13 @@ export default function Login() {
         </Tooltip>
       </Stack>
 
-      <Alert severity="info" sx={{ mb: 3 }}>
+      {/* <Alert severity="info" sx={{ mb: 3 }}>
         Use email : <strong>demo@Rehltk.com</strong> / password :<strong> demo1234</strong>
-      </Alert>
+      </Alert> */}
 
       <AuthLoginForm />
 
-      <AuthWithSocial />
+      {/* <AuthWithSocial /> */}
     </LoginLayout>
   );
 }

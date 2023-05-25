@@ -22,7 +22,6 @@ export default function ComplaintEditPage() {
     const { name } = useParams();
 
     const {data} = useGetComplaintIdQuery(name)
-    console.log("🚀 ~ file: ComplaintEditPage.js:25 ~ CourseEditPage ~ data:", data)
     const [editComplaint, { isLoading }] = useEditComplaintMutation()
 
     // const currentCourse = _consoltingList.find(

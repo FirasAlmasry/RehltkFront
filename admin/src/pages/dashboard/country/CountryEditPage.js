@@ -22,7 +22,6 @@ export default function CountryEditPage() {
     const { name } = useParams();
 
     const {data} = useGetCountryIdQuery(name)
-    console.log("🚀 ~ file: CountryEditPage.js:25 ~ CourseEditPage ~ data:", data)
     const [editCountry, { isLoading }] = useEditCountryMutation()
 
 

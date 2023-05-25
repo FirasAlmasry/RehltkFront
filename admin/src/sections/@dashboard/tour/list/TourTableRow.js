@@ -17,6 +17,8 @@ import Label from "../../../../components/label";
 import Iconify from "../../../../components/iconify";
 import MenuPopover from "../../../../components/menu-popover";
 import ConfirmDialog from "../../../../components/confirm-dialog";
+import { useGetCountryIdQuery } from "../../../../state/ApiCountry";
+import { useParams } from "react-router-dom";
 
 // ----------------------------------------------------------------------
 
@@ -56,7 +58,6 @@ export default function TourTableRow({ row, selected, onEditRow, onSelectRow, on
     const handleClosePopover = () => {
         setOpenPopover(null);
     };
-
     return (
         <>
             <TableRow hover selected={selected}>
@@ -64,7 +65,7 @@ export default function TourTableRow({ row, selected, onEditRow, onSelectRow, on
                     <Checkbox checked={selected} onClick={onSelectRow} />
                 </TableCell>
 
-                <TableCell align="left">{country}</TableCell>
+                {/* <TableCell align="left">{country}</TableCell> */}
 
                 <TableCell>
                     <Stack direction="row" alignItems="center" spacing={2}>

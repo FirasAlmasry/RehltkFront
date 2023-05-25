@@ -93,7 +93,6 @@ export default function CountryOrderListPage() {
     const navigate = useNavigate();
 
     const { data, isLoading } = useGetToursQuery();
-    console.log("🚀 ~ file: ToursListPage.js:66 ~ ToursListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if (data) {

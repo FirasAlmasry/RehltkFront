@@ -113,8 +113,8 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
             formData.employee = user._id || ''
             // eslint-disable-next-line no-lone-blocks
             {isEdit
-                ? await editSales({formData, id: currentSalse._id})
-                : await addSalse( formData )
+                ? await editSales({formData, id: currentSalse._id}).unwrap()
+                : await addSalse( formData ).unwrap()
             }
             
             reset();
@@ -122,6 +122,7 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
             navigate(PATH_DASHBOARD.salse.list);
             console.log("formData", formData);
         } catch (error) {
+            enqueueSnackbar(error.data.message, {variant: 'error'});
             console.error(error);
         }
     };

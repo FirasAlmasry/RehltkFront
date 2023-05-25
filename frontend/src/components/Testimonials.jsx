@@ -11,7 +11,7 @@ function Testimonials({name,state,desc}) {
                 gap={3} 
                 flexDirection={"column"} 
                 alignItems={"center"} 
-                justifyContent={"center"} 
+                justifyContent={"start"} 
                 textAlign={"center"}  
                 // height={300}
                 className="cardTestim" >

@@ -7,7 +7,6 @@ function ToursCity() {
     const [countryData, setCountryData] = useState([]);
     let { id } = useParams()
     const { data, isLoading } = useGetCountryIdQuery(id);
-    console.log("🚀 ~ file: TorsCard.jsx:10 ~ TorsCard ~ data:", data)
     useEffect(() => {
         if (data) {
             setCountryData(data.data.tours)

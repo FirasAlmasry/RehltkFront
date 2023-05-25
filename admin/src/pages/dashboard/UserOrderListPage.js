@@ -94,7 +94,6 @@ export default function EmploymentOrderListPage() {
     const navigate = useNavigate();
 
     const {data, isLoading}  = useGetUserOrderQuery();
-    console.log("🚀 ~ file: UserOrderListPage.js:97 ~ EmploymentOrderListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if(data) {

@@ -94,7 +94,6 @@ export default function EmploymentOrderListPage() {
 
     
     const { data, isLoading } = useGetEmploymentQuery();
-    console.log("🚀 ~ file: UserTableRow.js:33 ~ UserTableRow ~ data:", data)
 const [tableData, setTableData] = useState([]);
 
     useEffect(() => {

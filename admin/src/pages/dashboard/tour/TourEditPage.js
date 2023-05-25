@@ -22,7 +22,6 @@ export default function ToursEditPage() {
     const { name } = useParams();
 
     const {data, isLoading } = useGetToursIdQuery(name)
-    console.log("🚀 ~ file: TourEditPage.js:25 ~ ToursEditPage ~ data:", data)
 
     return (
         <>

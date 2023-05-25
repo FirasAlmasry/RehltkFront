@@ -130,9 +130,9 @@ export const CountryListPage = Loadable(
 export const CountryCreatePage = Loadable(
     lazy(() => import("../pages/dashboard/country/CountryCreatePage"))
 );
-export const CountryOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/country/CountryOrderListPage"))
-);
+// export const CountryOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/country/CountryOrderListPage"))
+// );
 export const CountryEditPage = Loadable(
     lazy(() => import("../pages/dashboard/country/CountryEditPage"))
 );
@@ -144,9 +144,9 @@ export const ComplaintListPage = Loadable(
 export const ComplaintCreatePage = Loadable(
     lazy(() => import("../pages/dashboard/complaint/ComplaintCreatePage"))
 );
-export const ComplaintOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/complaint/ComplaintOrderListPage"))
-);
+// export const ComplaintOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/complaint/ComplaintOrderListPage"))
+// );
 export const ComplaintEditPage = Loadable(
     lazy(() => import("../pages/dashboard/complaint/ComplaintEditPage"))
 );
@@ -159,9 +159,9 @@ export const TourListPage = Loadable(
 export const TourCreatePage = Loadable(
     lazy(() => import("../pages/dashboard/tour/TourCreatePage"))
 );
-export const TourOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/tour/TourOrderListPage"))
-);
+// export const TourOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/tour/TourOrderListPage"))
+// );
 export const TourEditPage = Loadable(
     lazy(() => import("../pages/dashboard/tour/TourEditPage"))
 );
@@ -174,9 +174,9 @@ export const SalseListPage = Loadable(
 export const SalseCreatePage = Loadable(
     lazy(() => import("../pages/dashboard/salse/SalseCreatePage"))
 );
-export const SalseOrderListPage = Loadable(
-    lazy(() => import("../pages/dashboard/salse/SalseOrderListPage"))
-);
+// export const SalseOrderListPage = Loadable(
+//     lazy(() => import("../pages/dashboard/salse/SalseOrderListPage"))
+// );
 export const SalseEditPage = Loadable(
     lazy(() => import("../pages/dashboard/salse/SalseEditPage"))
 );

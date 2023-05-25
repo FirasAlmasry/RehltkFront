@@ -57,7 +57,6 @@ function EmploymentForm() {
         
         resolver: yupResolver(NewComplaintSchema),
     });
-    // console.log("🚀 ~ file: ComplaintForm.jsx:32 ~ ComplaintForm ~ register:", register)
 
     const [ok, setOk] = useState(null);
 
@@ -67,7 +66,8 @@ function EmploymentForm() {
         try {
             await addEmployment(data)
             console.log("DATA", data);
-            reset()
+            reset(data)
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         } catch (error) {
             console.error(error);
         }

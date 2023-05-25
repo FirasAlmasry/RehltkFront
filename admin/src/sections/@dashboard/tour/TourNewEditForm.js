@@ -46,7 +46,6 @@ TourNewEditForm.propTypes = {
 };
 
 export default function TourNewEditForm({ isEdit = false, currentTour }) {
-    console.log("🚀 ~ file: TourNewEditForm.js:49 ~ TourNewEditForm ~ currentTour:", currentTour)
     const navigate = useNavigate();
 
     const { enqueueSnackbar } = useSnackbar();
@@ -133,7 +132,7 @@ export default function TourNewEditForm({ isEdit = false, currentTour }) {
                 ? await editTours({formData, id : currentTour._id }).unwrap()
                 : await addTours(formData).unwrap()
             }
-            reset();
+            reset();    
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.tour.list);
             console.log("DATA", formData);

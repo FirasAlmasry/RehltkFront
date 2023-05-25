@@ -181,10 +181,10 @@ export default function Router() {
                         // { path: 'cards', element: <UserCardsPage /> },
                         { path: "list", element: <ComplaintListPage /> },
                         { path: "new", element: <ComplaintCreatePage /> },
-                        {
-                            path: "order-list",
-                            element: <ComplaintOrderListPage />,
-                        },
+                        // {
+                        //     path: "order-list",
+                        //     element: <ComplaintOrderListPage />,
+                        // },
                         { path: ":name/edit", element: <ComplaintEditPage /> },
                     ],
                 },
@@ -201,10 +201,10 @@ export default function Router() {
                         // { path: 'cards', element: <UserCardsPage /> },
                         { path: "list", element: <CountryListPage /> },
                         { path: "new", element: <CountryCreatePage /> },
-                        {
-                            path: "order-list",
-                            element: <CountryOrderListPage />,
-                        },
+                        // {
+                        //     path: "order-list",
+                        //     element: <CountryOrderListPage />,
+                        // },
                         { path: ":name/edit", element: <CountryEditPage /> },
                     ],
                 },
@@ -221,10 +221,10 @@ export default function Router() {
                         // { path: 'cards', element: <UserCardsPage /> },
                         { path: "list", element: <TourListPage /> },
                         { path: "new", element: <TourCreatePage /> },
-                        {
-                            path: "order-list",
-                            element: <TourOrderListPage />,
-                        },
+                        // {
+                        //     path: "order-list",
+                        //     element: <TourOrderListPage />,
+                        // },
                         { path: ":name/edit", element: <TourEditPage /> },
                     ],
                 },
@@ -241,10 +241,10 @@ export default function Router() {
                         // { path: 'cards', element: <UserCardsPage /> },
                         { path: "list", element: <SalseListPage /> },
                         { path: "new", element: <SalseCreatePage /> },
-                        {
-                            path: "order-list",
-                            element: <SalseOrderListPage />,
-                        },
+                        // {
+                        //     path: "order-list",
+                        //     element: <SalseOrderListPage />,
+                        // },
                         { path: ":name/edit", element: <SalseEditPage /> },
                     ],
                 },

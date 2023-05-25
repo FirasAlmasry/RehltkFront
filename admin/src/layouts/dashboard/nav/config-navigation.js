@@ -65,9 +65,9 @@ const navConfig = [
                 icon: ICONS.user,
                 children: [
                     { title: "list", path: PATH_DASHBOARD.user.list },
-                    { title: "create", path: PATH_DASHBOARD.user.new },
-                    { title: "edit", path: PATH_DASHBOARD.user.demoEdit },
-                    { title: "account", path: PATH_DASHBOARD.user.account },
+                    // { title: "create", path: PATH_DASHBOARD.user.new },
+                    // { title: "edit", path: PATH_DASHBOARD.user.demoEdit },
+                    // { title: "account", path: PATH_DASHBOARD.user.account },
                     {title: "Order list", path: PATH_DASHBOARD.user.orderList },
                 ],
             },
@@ -101,7 +101,7 @@ const navConfig = [
                 children: [
                     { title: "list", path: PATH_DASHBOARD.country.list },
                     { title: "create", path: PATH_DASHBOARD.country.new },
-                    {title: "Order list", path: PATH_DASHBOARD.country.orderList },
+                    // {title: "Order list", path: PATH_DASHBOARD.country.orderList },
                 ],
             },
             // country
@@ -112,7 +112,7 @@ const navConfig = [
                 children: [
                     { title: "list", path: PATH_DASHBOARD.complaint.list },
                     { title: "create", path: PATH_DASHBOARD.complaint.new },
-                    {title: "Order list", path: PATH_DASHBOARD.complaint.orderList },
+                    // {title: "Order list", path: PATH_DASHBOARD.complaint.orderList },
                 ],
             },
             // tour
@@ -123,7 +123,7 @@ const navConfig = [
                 children: [
                     { title: "list", path: PATH_DASHBOARD.tour.list },
                     { title: "create", path: PATH_DASHBOARD.tour.new },
-                    {title: "Order list", path: PATH_DASHBOARD.tour.orderList },
+                    // {title: "Order list", path: PATH_DASHBOARD.tour.orderList },
                 ],
             },
             // salse
@@ -134,7 +134,7 @@ const navConfig = [
                 children: [
                     { title: "list", path: PATH_DASHBOARD.salse.list },
                     { title: "create", path: PATH_DASHBOARD.salse.new },
-                    {title: "Order list", path: PATH_DASHBOARD.salse.orderList },
+                    // {title: "Order list", path: PATH_DASHBOARD.salse.orderList },
                 ],
             },
         ],

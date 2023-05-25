@@ -61,7 +61,6 @@ const TABLE_HEAD = [
 
 export default function EmploymentListPage() {
     const { data, isLoading } = useGetEmploymentQuery();
-    console.log("🚀 ~ file: UserTableRow.js:33 ~ UserTableRow ~ data:", data)
     const {
         dense,
         page,

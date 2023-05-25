@@ -104,7 +104,6 @@ export default function SalesListPage() {
     const navigate = useNavigate();
 
     const { data, isLoading } = useGetSalesQuery();
-    console.log("🚀 ~ file: UserTableRow.js:33 ~ UserTableRow ~ data:", data?.data)
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if (data) {

@@ -102,15 +102,16 @@ export default function ComplaintNewEditForm({ isEdit = false, currentComplaint 
         try {
             // eslint-disable-next-line no-lone-blocks
             {isEdit?
-               await editComplaint({formData, id: currentComplaint._id})
+               await editComplaint({formData, id: currentComplaint._id}).unwrap()
                 :
-                await addComplaint(formData)
+                await addComplaint(formData).unwrap()
             }
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.complaint.list);
             console.log("DATA", formData);
         } catch (error) {
+            enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);
         }
     };

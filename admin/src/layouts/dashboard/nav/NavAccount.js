@@ -8,7 +8,7 @@ import { useAuthContext } from '../../../auth/useAuthContext';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
 import { CustomAvatar } from '../../../components/custom-avatar';
-
+import Avatar from '@mui/material/Avatar';
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -25,9 +25,9 @@ export default function NavAccount() {
   const { user } = useAuthContext();
 
   return (
-    <Link component={RouterLink} to={PATH_DASHBOARD.user.account} underline="none" color="inherit">
+    <Link component={RouterLink} to={PATH_DASHBOARD.user.list} underline="none" color="inherit">
       <StyledRoot>
-        <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
+        <Avatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
 
         <Box sx={{ ml: 2, minWidth: 0 }}>
           <Typography variant="subtitle2" noWrap>

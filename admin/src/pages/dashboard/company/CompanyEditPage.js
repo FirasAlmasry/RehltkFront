@@ -22,7 +22,6 @@ export default function CompanyEditPage() {
     const { name } = useParams();
 
     const {data} = useGetCompanyIdQuery(name)
-    console.log("🚀 ~ file: CompanyEditPage.js:25 ~ CourseEditPage ~ data:", data)
     const [editCompany, { isLoading }] = useEditCompanyMutation()
 
     // const currentCourse = _consoltingList.find(

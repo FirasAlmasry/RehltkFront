@@ -6,7 +6,6 @@ import { useGetCountryQuery } from "../state/ApiCountry";
 function ToursList() {
     const [allCountryData, setAllCountryData] = useState([]);
     const { data, isLoading } = useGetCountryQuery();
-    console.log("🚀 ~ file: TorsCard.jsx:10 ~ TorsCard ~ data:", data)
     useEffect(() => {
         if (data) {
             setAllCountryData(data.data.countrys)

@@ -101,15 +101,16 @@ export default function CompanyNewEditForm({ isEdit = false, currentCompany }) {
         try {
             // eslint-disable-next-line no-lone-blocks
             {isEdit?
-               await editCompany({formData, id: currentCompany._id})
+               await editCompany({formData, id: currentCompany._id}).unwrap()
                 :
-                await addCompany(formData)
+                await addCompany(formData).unwrap()
             }
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.company.list);
             console.log("DATA", formData);
         } catch (error) {
+            enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);
         }
     };

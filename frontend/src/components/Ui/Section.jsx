@@ -6,8 +6,8 @@ function Section({ children, title }) {
         <Container maxWidth="lg">
             <Box
                 sx={{
-                    marginTop: 10,
-                    marginBottom: 10,
+                    marginTop: 6,
+                    marginBottom: 6,
                 }}
             >
                 <Typography

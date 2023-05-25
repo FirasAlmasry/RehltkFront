@@ -63,7 +63,6 @@ const TABLE_HEAD = [
 export default function CompanyListPage() {
 
     const { data, isLoading } = useGetCompanyQuery();
-    console.log("🚀 ~ file: UserTableRow.js:33 ~ UserTableRow ~ data:", data)
     const {
         dense,
         page,

@@ -11,6 +11,10 @@ import ToursDetiles from "./pages/ToursDetiles";
 import Footer from "./components/Footer";
 import NestTour from "./pages/NestTour";
 import NestTourCard from "./components/NestTourCard";
+import CardBlogDesc from "./components/CardBlogDesc";
+import CardBlogDescBar from "./components/CardBlogDescBar";
+import CardBlogDescBhre from "./components/CardBlogDescBhre";
+import CardBlogDescMostar from "./components/CardBlogDescMostar";
 
 function App() {
     return (
@@ -27,7 +31,10 @@ function App() {
                 <Route path="/tours/:id" element={<NestTour />} />
                 <Route path="/tourCity/:id" element={<NestTourCard />} />
                 <Route path="/tourDetails/:id" element={<ToursDetiles />} />
-                {/* <Route path="*" element={<NotFound />} /> */}
+                <Route path="/blog/aoruba" element={<CardBlogDesc />} />
+                <Route path="/blog/barshlona" element={<CardBlogDescBar />} />
+                <Route path="/blog/bhre" element={<CardBlogDescBhre />} />
+                <Route path="/blog/mostar" element={<CardBlogDescMostar />} />
             </Routes>
             <Footer />
         </div>

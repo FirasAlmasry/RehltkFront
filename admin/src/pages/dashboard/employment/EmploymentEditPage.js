@@ -22,7 +22,6 @@ export default function EmploymentEditPage() {
     const { name } = useParams();
 
     const {data} = useGetEmploymentIdQuery(name)
-    console.log("🚀 ~ file: EmploymentEditPage.js:25 ~ CourseEditPage ~ data:", data)
     const [editEmployment, { isLoading }] = useEditEmploymentMutation()
 
     return (

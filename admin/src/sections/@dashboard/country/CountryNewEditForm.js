@@ -101,14 +101,15 @@ export default function CountryNewEditForm({ isEdit = false, currentCountry }) {
             // eslint-disable-next-line no-lone-blocks
             {
                 isEdit
-                    ? await editCountry({ formData, id: currentCountry._id })
-                    : await addCountry(formData);
+                    ? await editCountry({ formData, id: currentCountry._id }).unwrap()
+                    : await addCountry(formData).unwrap()
             }
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.country.list);
             console.log("DATA", formData);
         } catch (error) {
+            enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);
         }
     };

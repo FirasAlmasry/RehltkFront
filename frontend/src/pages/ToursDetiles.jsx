@@ -11,7 +11,6 @@ function ToursDetiles() {
     const [tourData, setTourData] = useState([]);
     let { id } = useParams()
     const { data, isLoading } = useGetToursIdQuery(id);
-    console.log("🚀 ~ file: TorsCard.jsx:10 ~ TorsCard ~ data:", data)
     useEffect(() => {
         if (data) {
             setTourData(data.data)

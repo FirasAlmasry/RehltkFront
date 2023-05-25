@@ -55,7 +55,7 @@ const ROLE_TOUR = ["all", "activ", "unActiv"];
 // - price
 // - imageUrl
 const TABLE_HEAD = [
-    { id: "country", label: "country", align: "left" },
+    // { id: "country", label: "country", align: "left" },
     { id: "imageUrl", label: "Image", align: "left" },
     { id: "description", label: "Description", align: "left" },
     { id: 'title', label: 'Title', align: 'left' },
@@ -89,7 +89,7 @@ export default function TourListPage() {
     const { themeStretch } = useSettingsContext();
 
     const navigate = useNavigate();
-
+    
     const [tableData, setTableData] = useState([]);
     const { data, isLoading } = useGetToursQuery();
     useEffect(() => {

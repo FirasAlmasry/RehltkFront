@@ -8,11 +8,11 @@ function About() {
             <Header1 title="رحلتك للسفر والسياحة " desc="من نحن" />
             <Container
                 sx={{
-                    mt: "-70px",
+                    mt: {md:"-70px", xs:"-20px",},
                     mb: 5,
                 }}
             >
-                <Box display={"flex"} alignItems={"center"} justifyContent={"center"} >
+                <Box sx={{ flexDirection: {md:'row', xs:'column-reverse'} }} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                 <Typography
                     variant="subtitle1"
                     color={"GrayText"}

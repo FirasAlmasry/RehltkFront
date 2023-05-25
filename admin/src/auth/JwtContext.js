@@ -73,7 +73,6 @@ export function AuthProvider({ children }) {
     try {
       const accessToken = storageAvailable ? localStorage.getItem('accessToken') : '';
       const user = storageAvailable ? JSON.parse(localStorage.getItem('user')) : '';
-      console.log("🚀 ~ file: JwtContext.js:76 ~ initialize ~ user:", user)
 
       if (accessToken && user ) {
         setSession(accessToken);
@@ -121,7 +120,6 @@ export function AuthProvider({ children }) {
       password,
     });
     const { token: accessToken, ...user } = response.data;
-    console.log("🚀 ~ file: JwtContext.js:121 ~ login ~  response.data:",  response.data.token)
     localStorage.setItem('user', JSON.stringify(user) );
     setSession(response.data.token);
 
@@ -142,7 +140,6 @@ export function AuthProvider({ children }) {
       phone,
     });
     const { accessToken, user } = response.data;
-    console.log("🚀 ~ file: JwtContext.js:143 ~ register ~ response.data:", response.data.token)
 
     localStorage.setItem('accessToken', accessToken);
 

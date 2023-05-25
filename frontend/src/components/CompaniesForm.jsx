@@ -53,7 +53,6 @@ function CompaniesForm() {
         
         resolver: yupResolver(NewComplaintSchema),
     });
-    // console.log("🚀 ~ file: ComplaintForm.jsx:32 ~ ComplaintForm ~ register:", register)
 
     const [ok, setOk] = useState(null);
 
@@ -63,33 +62,12 @@ function CompaniesForm() {
         try {
             await addCompany(data)
             console.log("DATA", data);
-            reset()
+            reset(data)
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         } catch (error) {
             console.error(error);
         }
     };
-    // const submitHandler = async (e) => {
-    //     e.preventDefault();
-
-    //     try {
-    //         const data = {
-    //             phone,
-    //             personName,
-    //             coumpanyName,
-    //             email,
-    //             city,
-    //             desc,
-    //             date: Date.now(),
-    //         };
-    //         const res = await axios.post(
-    //             "http://localhost:8000/addCoumpanyOrder",
-    //             data
-    //         );
-    //         if (res.status === 200) setOk(true);
-    //     } catch (error) {
-    //         setOk(false);
-    //     }
-    // };
     return (
         <Box>
             <Typography
