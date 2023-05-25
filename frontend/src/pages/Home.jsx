@@ -7,6 +7,7 @@ import Section from "../components/Ui/Section";
 import SotialIcon from "../components/SotialIcon";
 import CardBlog from "../components/CardBlog";
 import IconSo from "../components/IconSo";
+import ListReview from "../components/ListReview";
 
 function Home() {
     return (
@@ -17,7 +18,8 @@ function Home() {
                 <ToursList />
             </Section>
             <Section title="اراء العملاء">
-                <TestimonialsList />
+                <ListReview />
+                {/* <TestimonialsList /> */}
             </Section>
             <Section title="حساباتنا">
                 <SotialIcon />

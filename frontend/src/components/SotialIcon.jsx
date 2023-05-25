@@ -1,4 +1,3 @@
-// import { Facebook, Instagram, Twitter, Google } from '@mui/icons-material'
 import { CardMedia, Stack } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -6,7 +5,7 @@ import "./SotialIcon.css"
 function SotialIcon() {
     return (
         <Stack direction="row" gap={3} justifyContent={"center"} margin={"0 1%"}>
-            <Link
+            {/* <Link
                 to="#"
                 style={{
                     color: "inherit",
@@ -21,7 +20,7 @@ function SotialIcon() {
                 image="images/Facebook.png"
                 alt="green iguana"
             />
-            </Link>
+            </Link> */}
             <Link
                 to="https://www.instagram.com/reheltkksa/#"
                 style={{

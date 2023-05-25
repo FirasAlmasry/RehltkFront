@@ -11,7 +11,7 @@ function CardBlogDescBhre() {
                 height="300"
 
                 image={imgBlog}
-                style={{ width: "50%", margin: "auto" }}
+                sx={{ width:{md:"50%",xs:"100%" }, margin: "auto" }}
             />
             <Container
                 sx={{

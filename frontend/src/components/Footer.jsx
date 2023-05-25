@@ -14,7 +14,7 @@ function Footer() {
                 alignItems: "center",
                 justifyContent: "center",
                 p: 0,
-                pt:2,
+                pt: 2,
                 gap: 4,
                 background: "rgba(13, 104, 161, 0.3)"
             }}
@@ -31,7 +31,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>الصفحة الرئيسية</Typography>
@@ -42,7 +42,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>من نحن</Typography>
@@ -53,7 +53,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>حجز برامج سياحية</Typography>
@@ -64,7 +64,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>ارسال شكوى</Typography>
@@ -75,7 +75,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>طلبات الشركات</Typography>
@@ -86,7 +86,7 @@ function Footer() {
                         color: "inherit",
                         textDecoration: "none",
                         fontSize: 15,
-                        
+
                     }}
                 >
                     <Typography fontWeight={"bold"}>توظيف</Typography>
@@ -94,6 +94,20 @@ function Footer() {
 
             </Stack>
             <Typography fontWeight={"bold"}>جميع الحقوق محفوظة © رحلتك للسياحة 2021</Typography>
+            <Typography fontWeight={"bold"}>
+                تصميم وتطوير شركة
+                <Link
+                    to="https://mazidagency.com/"
+                    style={{
+                        color: "inherit",
+                        textDecoration: "none",
+                        fontSize: 15,
+
+                    }}
+                > Mazid Agency
+                </Link>
+
+            </Typography>
         </Box>
     );
 }
