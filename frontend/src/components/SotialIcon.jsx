@@ -5,8 +5,8 @@ import "./SotialIcon.css"
 function SotialIcon() {
     return (
         <Stack direction="row" gap={3} justifyContent={"center"} margin={"0 1%"}>
-            {/* <Link
-                to="#"
+            <Link
+                to="https://www.facebook.com/profile.php?id=100091383402355&mibextid=ZbWKwL"
                 style={{
                     color: "inherit",
                     textDecoration: "none",
@@ -16,11 +16,11 @@ function SotialIcon() {
             >
                 <CardMedia
                 component="img"
-                height="40px"
+                height="45px"
                 image="images/Facebook.png"
                 alt="green iguana"
             />
-            </Link> */}
+            </Link>
             <Link
                 to="https://www.instagram.com/reheltkksa/#"
                 style={{
@@ -32,7 +32,7 @@ function SotialIcon() {
             >
                 <CardMedia
                 component="img"
-                height="40px"
+                height="45px"
                 image="images/Instagram.svg"
                 alt="green iguana"
             />
@@ -48,8 +48,24 @@ function SotialIcon() {
             >
                 <CardMedia
                 component="img"
-                height="40px"
+                height="45px"
                 image="images/Snapchat_icon.webp"
+                alt="green iguana"
+            />
+            </Link>
+            <Link
+                to="http://tiktok.com/@reheltkksa"
+                style={{
+                    color: "inherit",
+                    textDecoration: "none",
+                    fontSize: 15,
+                    fontWeight: "bold",
+                }}
+            >
+                <CardMedia
+                component="img"
+                height="50px"
+                image="images/TikTok.png"
                 alt="green iguana"
             />
             </Link>

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.7c6d6a93.css",
-    "main.js": "/static/js/main.5d8cdaea.js",
+    "main.js": "/static/js/main.0ccaa25c.js",
     "static/media/موستار.jpg": "/static/media/موستار.e46623928644b9a4d9fc.jpg",
     "static/media/اوربا.jpg": "/static/media/اوربا.3271c89d970256049c94.jpg",
     "static/media/رحلتك.jpg": "/static/media/رحلتك.12d4f6276c6d5df9d6bf.jpg",
     "static/media/ماهو الكروز البحري.jpg": "/static/media/ماهو الكروز البحري.8043b944149b60365955.jpg",
     "index.html": "/index.html",
     "main.7c6d6a93.css.map": "/static/css/main.7c6d6a93.css.map",
-    "main.5d8cdaea.js.map": "/static/js/main.5d8cdaea.js.map"
+    "main.0ccaa25c.js.map": "/static/js/main.0ccaa25c.js.map"
   },
   "entrypoints": [
     "static/css/main.7c6d6a93.css",
-    "static/js/main.5d8cdaea.js"
+    "static/js/main.0ccaa25c.js"
   ]
 }
