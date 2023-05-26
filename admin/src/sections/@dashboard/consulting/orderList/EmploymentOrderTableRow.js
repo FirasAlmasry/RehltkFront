@@ -72,14 +72,15 @@ export default function EmploymentOrderTableRow({
                 </TableCell>
                 <TableCell align="left">{email}</TableCell>
 
+                <TableCell align="left">
+                    {description}
+                </TableCell>
+
                 <TableCell align="left" sx={{ textTransform: "capitalize" }}>
                     {address}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                     {phone}
-                </TableCell>
-                <TableCell align="right">
-                    {description}
                 </TableCell>
             </TableRow>
         </>

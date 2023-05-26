@@ -1,10 +1,12 @@
 import { Box, CardMedia, Container, Typography } from "@mui/material";
 import React from "react";
 import Header1 from "../components/Header1";
+import IconSo from "../components/IconSo";
 
 function About() {
     return (
         <Box>
+            <IconSo />
             <Header1 title="رحلتك للسفر والسياحة " desc="من نحن" />
             <Container
                 sx={{

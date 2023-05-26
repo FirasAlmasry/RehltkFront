@@ -6,7 +6,28 @@ export const ApiTours = api.injectEndpoints({
   tagTypes: ["tours","adTours"],
   endpoints: (build) => ({
     getTours: build.query({
-      query: () => `/country-tours`,
+      query: ({page, limit}) =>`country-tours?page=${page}&limit=${limit}`,
+      // Only have one cache entry because the arg always maps to one string
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      // Always merge incoming data to the cache entry
+      merge(currentCacheData, responseData, _meta, args) {
+        console.log( responseData.data.page , currentCacheData.data.page)
+        if(responseData.data.page === 1 && !currentCacheData.data.page) {
+          return responseData;
+        }
+        if (responseData.data.page > currentCacheData.data.page) {
+          currentCacheData.data.countryTourss.push(...responseData.data.countryTourss);
+          currentCacheData.data.page = responseData.data.page 
+          return currentCacheData;
+        }
+          return currentCacheData
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
       providesTags: ["tours"],
     }),
     getToursId: build.query({

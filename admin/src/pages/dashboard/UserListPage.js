@@ -38,7 +38,7 @@ import {
 } from '../../components/table';
 // sections
 import { UserTableToolbar, UserTableRow } from '../../sections/@dashboard/user/list';
-import { useDeleteUserMutation, useGetUserQuery } from '../../state/apiUser';
+import { useDeleteUserMutation, useGetUserQuery, useListUserQuery } from '../../state/apiUser';
 
 // ----------------------------------------------------------------------
 
@@ -86,14 +86,15 @@ export default function UserListPage() {
   const { themeStretch } = useSettingsContext();
 
   const navigate = useNavigate();
-
-  const {data, isLoading}  = useGetUserQuery();
+  const {data, isUserLoading}  = useGetUserQuery({page : page + 1, limit: rowsPerPage});
+  console.log("🚀 ~ file: UserListPage.js:93 ~ UserListPage ~ data:", data)
   const [tableData, setTableData] = useState([]);
+  console.log("🚀 ~ file: UserListPage.js:93 ~ UserListPage ~ tableData:", tableData)
   useEffect(() => {
-    if(data) {
+    if(data && !isUserLoading ) {
       setTableData(data.data.users)
     }
-  }, [data])
+  }, [data,tableData, isUserLoading])
 
   const [openConfirm, setOpenConfirm] = useState(false);
 
@@ -190,7 +191,7 @@ export default function UserListPage() {
       <Helmet>
         <title> User: List | Rehltk</title>
       </Helmet>
-      {isLoading ? "testing": 
+      {isUserLoading ? "testing": 
       
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
@@ -274,7 +275,7 @@ export default function UserListPage() {
                     )
                   }
                 />
-                {isLoading ?"Loading...": 
+                {isUserLoading ?"Loading...": 
                 
                 <TableBody>
                   {dataFiltered
@@ -303,7 +304,7 @@ export default function UserListPage() {
           </TableContainer>
 
           <TablePaginationCustom
-            count={dataFiltered?.length}
+            count={data?.data.totalDocs}
             page={page}
             rowsPerPage={rowsPerPage}
             onPageChange={onChangePage}

@@ -59,7 +59,7 @@ const TABLE_HEAD = [
 // ----------------------------------------------------------------------
 
 export default function ComplaintListPage() {
-    const { data, isLoading } = useGetComplaintQuery();
+    
     const {
         dense,
         page,
@@ -86,7 +86,7 @@ export default function ComplaintListPage() {
     const { themeStretch } = useSettingsContext();
 
     const navigate = useNavigate();
-
+    const { data, isLoading } = useGetComplaintQuery({page : page + 1, limit: rowsPerPage});
     const [tableData, setTableData] = useState([]);
 
     useEffect(() => {
@@ -336,7 +336,7 @@ export default function ComplaintListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered?.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}

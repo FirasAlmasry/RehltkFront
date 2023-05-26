@@ -62,7 +62,7 @@ const TABLE_HEAD = [
 // ----------------------------------------------------------------------
 
 export default function CountryListPage() {
-    const { data, isLoading } = useGetCountryQuery();
+    
     const {
         dense,
         page,
@@ -85,7 +85,7 @@ export default function CountryListPage() {
     const { themeStretch } = useSettingsContext();
 
     const navigate = useNavigate();
-
+    const { data, isLoading } = useGetCountryQuery({page : page + 1, limit: rowsPerPage});
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if (data) {
@@ -108,7 +108,7 @@ export default function CountryListPage() {
         filterStatus,
     });
 
-    const dataInPage = dataFiltered.slice(
+    const dataInPage = dataFiltered?.slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
     );
@@ -119,9 +119,9 @@ export default function CountryListPage() {
         filterName !== "" || filterRole !== "all" || filterStatus !== "all";
 
     const isNotFound =
-        (!dataFiltered.length && !!filterName) ||
-        (!dataFiltered.length && !!filterRole) ||
-        (!dataFiltered.length && !!filterStatus);
+        (!dataFiltered?.length && !!filterName) ||
+        (!dataFiltered?.length && !!filterRole) ||
+        (!dataFiltered?.length && !!filterStatus);
 
     const handleOpenConfirm = () => {
         setOpenConfirm(true);
@@ -148,7 +148,7 @@ export default function CountryListPage() {
     const [deleteCountry] = useDeleteCountryMutation()
     const handleDeleteRow = (id) => {
         deleteCountry(id)
-        const deleteRow = tableData.filter((row) => row._id !== id);
+        const deleteRow = tableData?.filter((row) => row._id !== id);
         setSelected([]);
         setTableData(deleteRow);
 
@@ -161,7 +161,7 @@ export default function CountryListPage() {
     
     const handleDeleteRows = (selectedRows) => {
         
-        const deleteRows = tableData.filter(
+        const deleteRows = tableData?.filter(
             (row) => !selectedRows.includes(row.id)
         );
         setSelected([]);
@@ -282,7 +282,7 @@ export default function CountryListPage() {
                                     orderBy={orderBy}
                                     headLabel={TABLE_HEAD}
                                     rowCount={tableData.length}
-                                    numSelected={selected.length}
+                                    numSelected={selected?.length}
                                     onSort={onSort}
                                     onSelectAllRows={(checked) =>
                                         onSelectAllRows(
@@ -294,7 +294,7 @@ export default function CountryListPage() {
 
                                 <TableBody>
                                     {dataFiltered
-                                        .slice(
+                                        ?.slice(
                                             page * rowsPerPage,
                                             page * rowsPerPage + rowsPerPage
                                         )
@@ -322,7 +322,7 @@ export default function CountryListPage() {
                                         emptyRows={emptyRows(
                                             page,
                                             rowsPerPage,
-                                            tableData.length
+                                            tableData?.length
                                         )}
                                     />
 
@@ -333,7 +333,7 @@ export default function CountryListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}
@@ -381,18 +381,18 @@ function applyFilter({
     filterStatus,
     filterRole,
 }) {
-    const stabilizedThis = inputData.map((el, index) => [el, index]);
+    const stabilizedThis = inputData?.map((el, index) => [el, index]);
 
-    stabilizedThis.sort((a, b) => {
+    stabilizedThis?.sort((a, b) => {
         const order = comparator(a[0], b[0]);
         if (order !== 0) return order;
         return a[1] - b[1];
     });
 
-    inputData = stabilizedThis.map((el) => el[0]);
+    inputData = stabilizedThis?.map((el) => el[0]);
 
     if (filterName) {
-        inputData = inputData.filter(
+        inputData = inputData?.filter(
             (user) =>
                 user.title.ar
                     .toLowerCase()
@@ -401,11 +401,11 @@ function applyFilter({
     }
 
     if (filterStatus !== "all") {
-        inputData = inputData.filter((user) => user.active === filterStatus);
+        inputData = inputData?.filter((user) => user.active === filterStatus);
     }
 
     if (filterRole !== "all") {
-        inputData = inputData.filter((user) => user.role === filterRole);
+        inputData = inputData?.filter((user) => user.role === filterRole);
     }
 
     return inputData;

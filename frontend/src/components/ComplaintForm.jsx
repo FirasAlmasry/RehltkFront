@@ -175,6 +175,7 @@ function ComplaintForm() {
 
                 <br />
                 <Button
+                onClick={() => setOk(true)}
                     type="submit"
                     variant="contained"
                     fullWidth

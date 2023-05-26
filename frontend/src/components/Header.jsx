@@ -7,14 +7,15 @@ function Header() {
     return (
         <>
             <Carousel
-
+                navButtonsAlwaysVisible={true}
                 sx={{
                     width: "90%",
-                    marginRight: "5%"
+                    marginRight: "5%",
+                    height: { md: "600px", xs: "300px" }
                 }}
             >
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
 
                     component="img"
                     alt="green iguana"
@@ -28,7 +29,7 @@ function Header() {
                     }}
                 />
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
                     component="img"
                     alt="green iguana"
                     src="images/بانر/اندونيسيا موقع2.jpg"
@@ -41,7 +42,7 @@ function Header() {
                     }}
                 />
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
                     component="img"
                     alt="green iguana"
                     src="images/بانر/تايلاند موقع.jpg"
@@ -54,7 +55,7 @@ function Header() {
                     }}
                 />
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
                     component="img"
                     alt="green iguana"
                     src="images/بانر/تركيا موقع.jpg"
@@ -67,7 +68,7 @@ function Header() {
                     }}
                 />
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
                     component="img"
                     alt="green iguana"
                     src="images/بانر/جورجيا موقع.jpg"
@@ -80,7 +81,7 @@ function Header() {
                     }}
                 />
                 <CardMedia
-                    sx={{ height: { md: "450px", xs: "300px" } }}
+                    sx={{ height: { md: "600px", xs: "300px" } }}
                     component="img"
                     alt="green iguana"
                     src="images/بانر/ماليزيا موقع2 .jpg"

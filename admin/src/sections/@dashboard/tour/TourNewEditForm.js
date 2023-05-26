@@ -86,7 +86,7 @@ export default function TourNewEditForm({ isEdit = false, currentTour }) {
         defaultValues,
     });
 
-    const { data, isLoading: isCountryLoading } = useGetCountryQuery();
+    
     const optionsRole = [
         'all',
         'admin',
@@ -112,6 +112,8 @@ export default function TourNewEditForm({ isEdit = false, currentTour }) {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isEdit, currentTour]);
+    const { data, isLoading: isCountryLoading } = useGetCountryQuery({page: 1, limit: 200});
+    console.log("🚀 ~ file: TourNewEditForm.js:116 ~ TourNewEditForm ~ data:", data)
     const [addTours, { isLoading }] = useAddToursMutation()
     const [editTours, { isToursLoading }] = useEditToursMutation()
 

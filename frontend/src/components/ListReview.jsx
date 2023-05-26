@@ -1,18 +1,12 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
 
 function ListReview() {
     return (
         <>
-            <Carousel
-            style={{ boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.25)" }}
-                height={450}
-                sx={{
-                    marginTop:"25px",
-                    width: {md:"800px",xs:"100%"},
-                    margin: "auto"
-                }}>
-                    
+            <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
                  <img
                 fetchpriority="high"
                     src="images/rev/01.jpg"
@@ -26,7 +20,9 @@ function ListReview() {
 
                     }}
                 />
-                 <img
+            </Grid>
+            <Grid item xs={12} md={4}>
+            <img
                 fetchpriority="high"
                     src="images/rev/02.jpg"
                     alt=""
@@ -39,7 +35,9 @@ function ListReview() {
 
                     }}
                 />
-                 <img
+            </Grid>
+            <Grid item xs={12} md={4}>
+            <img
                 fetchpriority="high"
                     src="images/rev/03.png"
                     alt=""
@@ -52,7 +50,11 @@ function ListReview() {
 
                     }}
                 />
-            </Carousel>
+            </Grid>
+            </Grid>
+            
+                 
+            {/* </Carousel> */}
         </>
     )
 }

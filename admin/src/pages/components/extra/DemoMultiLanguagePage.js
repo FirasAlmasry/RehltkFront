@@ -22,7 +22,6 @@ import { useLocales } from '../../../locales';
 // components
 import Image from '../../../components/image';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
-import { useListPostsQuery } from '../../../state/ApiPagin';
 
 // ----------------------------------------------------------------------
 
@@ -31,7 +30,6 @@ export default function DemoMultiLanguagePage() {
 
   const [page, setPage] = useState(1);
 
-  const { data: posts, isLoading, isFetching } = useListPostsQuery(page)
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event, newPage) => {

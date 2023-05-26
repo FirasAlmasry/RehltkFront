@@ -6,6 +6,7 @@ import SimpleAccordion from "../components/Accordeon";
 import Section from "../components/Ui/Section";
 import { useGetToursIdQuery } from "../state/apiTours";
 import { useParams } from "react-router-dom";
+import IconSo from "../components/IconSo";
 
 function ToursDetiles() {
     const [tourData, setTourData] = useState([]);
@@ -20,6 +21,7 @@ function ToursDetiles() {
     const theme = useTheme();
     return (
         <Box>
+            <IconSo />
             <img
                 src={tourData.imageUrl}
                 alt=""

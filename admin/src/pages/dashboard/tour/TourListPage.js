@@ -90,8 +90,10 @@ export default function TourListPage() {
 
     const navigate = useNavigate();
     
+    const { data, isLoading } = useGetToursQuery({page : page + 1, limit: rowsPerPage});
+    console.log("🚀 ~ file: TourListPage.js:94 ~ TourListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
-    const { data, isLoading } = useGetToursQuery();
+    console.log("🚀 ~ file: TourListPage.js:96 ~ TourListPage ~ tableData.countryTourss:", tableData)
     useEffect(() => {
         if (data) {
             setTableData(data.data.countryTourss)
@@ -329,7 +331,7 @@ export default function TourListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered?.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}

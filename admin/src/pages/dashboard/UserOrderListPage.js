@@ -93,8 +93,10 @@ export default function EmploymentOrderListPage() {
 
     const navigate = useNavigate();
 
-    const {data, isLoading}  = useGetUserOrderQuery();
+    const {data, isLoading}  = useGetUserOrderQuery({page : page + 1, limit: rowsPerPage});
+    console.log("🚀 ~ file: UserOrderListPage.js:97 ~ EmploymentOrderListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
+    console.log("🚀 ~ file: UserOrderListPage.js:98 ~ EmploymentOrderListPage ~ tableData:", tableData)
     useEffect(() => {
         if(data) {
           setTableData(data.data.userOrders)
@@ -215,16 +217,16 @@ export default function EmploymentOrderListPage() {
                         },
                         { name: "Order List" },
                     ]}
-                    action={
-                        <Button
-                            component={RouterLink}
-                            to={PATH_DASHBOARD.user.new}
-                            variant="contained"
-                            startIcon={<Iconify icon="eva:plus-fill" />}
-                        >
-                            New User
-                        </Button>
-                    }
+                    // action={
+                    //     <Button
+                    //         component={RouterLink}
+                    //         to={PATH_DASHBOARD.user.new}
+                    //         variant="contained"
+                    //         startIcon={<Iconify icon="eva:plus-fill" />}
+                    //     >
+                    //         New User
+                    //     </Button>
+                    // }
                 />
 
                 <Card>
@@ -339,7 +341,7 @@ export default function EmploymentOrderListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered?.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}

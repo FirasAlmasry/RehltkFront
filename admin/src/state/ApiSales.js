@@ -6,7 +6,28 @@ export const ApiSales = api.injectEndpoints({
   tagTypes: ["sales","addSales"],
   endpoints: (build) => ({
     getSales: build.query({
-      query: () => `/sales`,
+      query: ({page, limit}) =>`sales?page=${page}&limit=${limit}`,
+      // Only have one cache entry because the arg always maps to one string
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      // Always merge incoming data to the cache entry
+      merge(currentCacheData, responseData, _meta, args) {
+        console.log( responseData.data.page , currentCacheData.data.page)
+        if(responseData.data.page === 1 && !currentCacheData.data.page) {
+          return responseData;
+        }
+        if (responseData.data.page > currentCacheData.data.page) {
+          currentCacheData.data.saless.push(...responseData.data.saless);
+          currentCacheData.data.page = responseData.data.page 
+          return currentCacheData;
+        }
+          return currentCacheData
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
       providesTags: ["sales"],
     }),
     getSalesId: build.query({

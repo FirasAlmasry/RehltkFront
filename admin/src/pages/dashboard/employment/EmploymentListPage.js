@@ -60,7 +60,7 @@ const TABLE_HEAD = [
 // ----------------------------------------------------------------------
 
 export default function EmploymentListPage() {
-    const { data, isLoading } = useGetEmploymentQuery();
+    
     const {
         dense,
         page,
@@ -88,8 +88,9 @@ export default function EmploymentListPage() {
 
     const navigate = useNavigate();
 
+    const { data, isLoading } = useGetEmploymentQuery({page : page + 1, limit: rowsPerPage});
+    console.log("🚀 ~ file: EmploymentListPage.js:92 ~ EmploymentListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
-    
     useEffect(() => {
         if (data) {
             setTableData(data.data.employmentApplications)
@@ -338,7 +339,7 @@ export default function EmploymentListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered?.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}

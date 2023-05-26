@@ -15,7 +15,9 @@ import CardBlogDesc from "./components/CardBlogDesc";
 import CardBlogDescBar from "./components/CardBlogDescBar";
 import CardBlogDescBhre from "./components/CardBlogDescBhre";
 import CardBlogDescMostar from "./components/CardBlogDescMostar";
-
+import LssuingTouristVisas from "./pages/OtherServise/LssuingTouristVisas";
+import InternationalLicense from "./pages/OtherServise/InternationalLicense";
+import BookingFlight from "./pages/OtherServise/BookingFlight";
 function App() {
     return (
         <div className="App" dir="rtl">
@@ -35,6 +37,15 @@ function App() {
                 <Route path="/blog/barshlona" element={<CardBlogDescBar />} />
                 <Route path="/blog/bhre" element={<CardBlogDescBhre />} />
                 <Route path="/blog/mostar" element={<CardBlogDescMostar />} />
+                <Route
+                    path="/LssuingTouristVisas"
+                    element={<LssuingTouristVisas />}
+                />
+                <Route
+                    path="/InternationalLicense"
+                    element={<InternationalLicense />}
+                />
+                <Route path="/BookingFlight" element={<BookingFlight />} />
             </Routes>
             <Footer />
         </div>

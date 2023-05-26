@@ -24,6 +24,7 @@ import * as Yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAddUserOrderMutation } from "../state/ApiUserOrders";
+import { useGetCountryQuery } from "../state/ApiCountry";
 const countrys = [
     "جورجيا ",
     "البوسنة ",
@@ -55,25 +56,22 @@ const citys = [
 ];
 
 function TravlForm() {
-    // const [phone, setPhone] = useState(null);
-    // const [city, setCity] = useState(null);
-    // const [country, setCountry] = useState(null);
-    // const [bookingFlight, setBookingFlight] = useState(null);
-    // const [ok, setOk] = useState(null);
     const NewComplaintSchema = Yup.object().shape({
         name: Yup.string().required("title ar is required"),
-        description :Yup.string().required("description ar is required"),
+        description: Yup.string().required("description ar is required"),
         email: Yup.string().required("Email is required"),
         address: Yup.string().required("Address is required"),
         phone: Yup.string().required("phone is required"),
+        country: Yup.string().required("country is required"),
+        // setBookingFlight: Yup.string().required("setBookingFlight is required"),
     });
-    const {register, handleSubmit, reset } = useForm({
-        
+    const { register, handleSubmit, reset } = useForm({
+
         resolver: yupResolver(NewComplaintSchema),
     });
 
-    const [ok, setOk] = useState(null);
-
+    const [ok, setOk] = useState(false);
+    const { data, isLoading: isCountryLoading } = useGetCountryQuery()
     const [addUserOrder, { isLoading }] = useAddUserOrderMutation()
     const onSubmit = async (data) => {
         console.log(data);
@@ -86,26 +84,6 @@ function TravlForm() {
             console.error(error);
         }
     };
-    // const submitHandler = async (e) => {
-    //     e.preventDefault();
-
-    //     try {
-    //         const data = {
-    //             phone,
-    //             city,
-    //             country,
-    //             bookingFlight,
-    //             date: Date.now(),
-    //         };
-    //         const res = await axios.post(
-    //             "http://localhost:8000/addOrder",
-    //             data
-    //         );
-    //         if (res.status === 200) setOk(true);
-    //     } catch (error) {
-    //         setOk(false);
-    //     }
-    // };
     return (
         <Box>
             <Typography
@@ -117,8 +95,7 @@ function TravlForm() {
                     maxWidth: 600,
                 }}
             >
-                للطلب والاستفسار، يرجى تزويدنا ببياناتك وسنقوم بالتواصل معك في
-                أسرع وقت ممكن:
+                للطلب والأستفسار يرجي تزودينا ببياناتك وسنقوم  بالنتواصل معك في اسرع وقت :
             </Typography>
             {ok !== null && ok && (
                 <Alert severity="success">تم ارسال الطلب بنجاح!</Alert>
@@ -141,12 +118,11 @@ function TravlForm() {
                     >
                         اسمك الكريم
                     </Typography>
-                    
+
                 </Box>
                 <TextField
                     fullWidth
                     {...register('name')}
-                    // onChange={(e) => setPersonName(e.target.value)}
                     required
                     sx={{
                         mb: 1,
@@ -155,36 +131,12 @@ function TravlForm() {
                         borderBottom: "1px solid",
                     }}
                 />
-                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
-                    <ApartmentOutlinedIcon />
-                    <Typography
-                        variant="h6"
-                        component="h3"
-                        sx={{
-                            mb: 1,
-                            maxWidth: 600,
-                        }}
-                    >
-                        اسم الشركة
-                    </Typography>
-                </Box>
-                <TextField
-                    fullWidth
-                    required
-                    {...register('companyName')}
-                    // onChange={(e) => setCoumpanyName(e.target.value)}
-                    sx={{
-                        mb: 1,
-                        backgroundColor: "#FFF",
-                        borderBottom: "1px solid",
-                    }}
-                /> */}
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                     <PhoneEnabledOutlinedIcon />
                     <Typography
                         variant="h6"
                         component="h3"
-                        
+
                         sx={{
                             mb: 1,
                             maxWidth: 600,
@@ -197,7 +149,6 @@ function TravlForm() {
                     fullWidth
                     required
                     {...register('phone')}
-                    // onChange={(e) => setPhone(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -222,7 +173,6 @@ function TravlForm() {
                     fullWidth
                     required
                     {...register('email')}
-                    // onChange={(e) => setEmail(e.target.value)}
                     sx={{
                         mb: 1,
                         backgroundColor: "#FFF",
@@ -248,13 +198,6 @@ function TravlForm() {
                     placeholder="مدينتك"
                     defaultValue={"---"}
                     {...register('address')}
-                    // onChange={(e) => setCity(e.target.value)}/**
-                    //  companyName
-                    //  name
-                    //  description
-                    //  email
-                    //  address
-                    //  phone */
                     required
                     sx={{
                         mb: 1,
@@ -265,6 +208,38 @@ function TravlForm() {
                     {citys.map((city) => (
                         <MenuItem key={city} value={city}>
                             {city}
+                        </MenuItem>
+                    ))}
+                </TextField>
+                <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <LocationOnOutlinedIcon />
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                        وين حاب تشافر:
+                    </Typography>
+                </Box>
+                <TextField
+                    fullWidth
+                    select
+                    placeholder="وين حاب تشافر"
+                    defaultValue={"---"}
+                    {...register('country')}
+                    required
+                    sx={{
+                        mb: 1,
+                        backgroundColor: "#FFF",
+                        borderBottom: "1px solid",
+                    }}
+                >
+                    {data?.data.countrys.map((country) => (
+                        <MenuItem key={country?._id} value={country?._id}>
+                            {country?.name}
                         </MenuItem>
                     ))}
                 </TextField>
@@ -294,7 +269,28 @@ function TravlForm() {
                 />
                 <br />
                 <br />
+                <FormControl
+                    color="secondary"
+                    required
+                    
+                    // name='setBookingFlight'
+                // onChange={(e) => setBookingFlight(e.target.value)}
+                >
+                    <RadioGroup row name="bookingFlight">
+                        <FormControlLabel
+                            value="نعم"
+                            control={<Radio color="secondary" />}
+                            label="نعم"
+                        />
+                        <FormControlLabel
+                            value="لا"
+                            control={<Radio color="secondary" />}
+                            label="لا"
+                        />
+                    </RadioGroup>
+                </FormControl>
                 <Button
+                    onClick={() => setOk(true)}
                     type="submit"
                     variant="contained"
                     fullWidth

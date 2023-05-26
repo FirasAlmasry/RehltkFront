@@ -103,7 +103,7 @@ export default function SalesListPage() {
 
     const navigate = useNavigate();
 
-    const { data, isLoading } = useGetSalesQuery();
+    const { data, isLoading } = useGetSalesQuery({page : page + 1, limit: rowsPerPage});
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if (data) {
@@ -126,7 +126,7 @@ export default function SalesListPage() {
         filterStatus,
     });
 
-    const dataInPage = dataFiltered.slice(
+    const dataInPage = dataFiltered?.slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
     );
@@ -137,9 +137,9 @@ export default function SalesListPage() {
         filterName !== "" || filterRole !== "all" || filterStatus !== "all";
 
     const isNotFound =
-        (!dataFiltered.length && !!filterName) ||
-        (!dataFiltered.length && !!filterRole) ||
-        (!dataFiltered.length && !!filterStatus);
+        (!dataFiltered?.length && !!filterName) ||
+        (!dataFiltered?.length && !!filterRole) ||
+        (!dataFiltered?.length && !!filterStatus);
 
     const handleOpenConfirm = () => {
         setOpenConfirm(true);
@@ -166,7 +166,7 @@ export default function SalesListPage() {
     const [deleteSales] =  useDeleteSalesMutation()
     const handleDeleteRow = async (id) => {
         await deleteSales(id)
-        const deleteRow = tableData.filter((row) => row._id !== id);
+        const deleteRow = tableData?.filter((row) => row._id !== id);
         setSelected([]);
         setTableData(deleteRow);
 
@@ -185,11 +185,11 @@ export default function SalesListPage() {
         setTableData(deleteRows);
 
         if (page > 0) {
-            if (selectedRows.length === dataInPage.length) {
+            if (selectedRows?.length === dataInPage?.length) {
                 setPage(page - 1);
-            } else if (selectedRows.length === dataFiltered.length) {
+            } else if (selectedRows?.length === dataFiltered?.length) {
                 setPage(0);
-            } else if (selectedRows.length > dataInPage.length) {
+            } else if (selectedRows?.length > dataInPage?.length) {
                 const newPage =
                     Math.ceil(
                         (tableData.length - selectedRows.length) / rowsPerPage
@@ -339,7 +339,7 @@ export default function SalesListPage() {
                                         emptyRows={emptyRows(
                                             page,
                                             rowsPerPage,
-                                            tableData.length
+                                            tableData?.length
                                         )}
                                     />
 
@@ -350,7 +350,7 @@ export default function SalesListPage() {
                     </TableContainer>
 
                     <TablePaginationCustom
-                        count={dataFiltered?.length}
+                        count={data?.data.totalDocs}
                         page={page}
                         rowsPerPage={rowsPerPage}
                         onPageChange={onChangePage}
@@ -400,7 +400,7 @@ function applyFilter({
 }) {
     const stabilizedThis = inputData?.map((el, index) => [el, index]);
 
-    stabilizedThis.sort((a, b) => {
+    stabilizedThis?.sort((a, b) => {
         const order = comparator(a[0], b[0]);
         if (order !== 0) return order;
         return a[1] - b[1];

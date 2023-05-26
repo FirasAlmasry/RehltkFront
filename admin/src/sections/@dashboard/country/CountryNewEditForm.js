@@ -107,7 +107,7 @@ export default function CountryNewEditForm({ isEdit = false, currentCountry }) {
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.country.list);
-            console.log("DATA", formData);
+            console.log("DATA", data);
         } catch (error) {
             enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);

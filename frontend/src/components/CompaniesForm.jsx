@@ -34,13 +34,6 @@ const citys = [
 ];
 
 function CompaniesForm() {
-    // const [personName, setPersonName] = useState(null);
-    // const [coumpanyName, setCoumpanyName] = useState(null);
-    // const [email, setEmail] = useState(null);
-    // const [phone, setPhone] = useState(null);
-    // const [city, setCity] = useState(null);
-    // const [desc, setDesc] = useState(null);
-    // const [ok, setOk] = useState(null);
     const NewComplaintSchema = Yup.object().shape({
         companyName: Yup.string().required("companyName ar is required"),
         name: Yup.string().required("name ar is required"),
@@ -257,6 +250,7 @@ function CompaniesForm() {
                 <br />
                 <br />
                 <Button
+                onClick={() => setOk(true)}
                     type="submit"
                     variant="contained"
                     fullWidth
