@@ -35,7 +35,7 @@ export default function EmploymentOrderTableRow({
     onSelectRow,
     onDeleteRow,
 }) {
-    const { name, email, address, phone, description  } = row;
+    const { name, email, address, phone, description, country  } = row;
 
     const [openConfirm, setOpenConfirm] = useState(false);
 
@@ -78,6 +78,9 @@ export default function EmploymentOrderTableRow({
 
                 <TableCell align="left" sx={{ textTransform: "capitalize" }}>
                     {address}
+                </TableCell>
+                <TableCell align="left" sx={{ textTransform: "capitalize" }}>
+                    {country}
                 </TableCell>
                 <TableCell align="left">
                     {phone}

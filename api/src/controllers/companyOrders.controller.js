@@ -53,7 +53,7 @@ export const createCompanyOrders = async (req, res, next) => {
         await CompanyOrdersService.isCreateCompanyOrdersDataValide(req.body);
 
         const data = await CompanyOrdersService.createCompanyOrders(req.body);
-        await GoogleSheetService.addCoumpanyOrder(req.data);
+        await GoogleSheetService.addCoumpanyOrder(req.body);
         res.status(HttpStatus.CREATED).json({
             code: HttpStatus.CREATED,
             data: data,

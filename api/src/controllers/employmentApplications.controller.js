@@ -62,7 +62,7 @@ export const createEmploymentApplications = async (req, res, next) => {
             await EmploymentApplicationsService.createEmploymentApplications(
                 req.body
             );
-        await GoogleSheetService.addEmployee(req.data);
+        await GoogleSheetService.addEmployee(req.body);
 
         res.status(HttpStatus.CREATED).json({
             code: HttpStatus.CREATED,

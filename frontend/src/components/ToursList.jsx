@@ -27,14 +27,13 @@ function ToursList() {
                     )
                 }
             </Grid>
-            <Grid container spacing={2}>
             <Divider
                 primary="Inbox"
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    my: 8,
                 }}
             />
+            <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                     <ServiseCard
                         to="/LssuingTouristVisas"

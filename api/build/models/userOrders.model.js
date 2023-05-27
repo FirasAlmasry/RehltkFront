@@ -20,11 +20,19 @@ var userOrdersSchema = new _mongoose.Schema({
     type: String,
     require: true
   },
+  country: {
+    type: String,
+    require: true
+  },
   description: {
     type: String,
     require: true
   },
   phone: {
+    type: String,
+    require: true
+  },
+  bookingFlight: {
     type: String,
     require: true
   }

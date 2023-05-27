@@ -78,7 +78,7 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [currentSalse]
     );
-    const { data, isLoading: isCountryLoading } = useGetCountryQuery();
+    const { data, isLoading: isCountryLoading } = useGetCountryQuery({page: 1, limit: 200});
     const methods = useForm({
         resolver: yupResolver(NewSalseSchema),
         defaultValues,
@@ -122,6 +122,7 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
             navigate(PATH_DASHBOARD.salse.list);
             console.log("formData", formData);
         } catch (error) {
+            console.log(error);
             enqueueSnackbar(error.data.message, {variant: 'error'});
             console.error(error);
         }
@@ -183,7 +184,7 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                                 }}
                             >
                                 {data?.data.countrys.map((country) => (
-                                    <MenuItem key={country?._id} value={country?._id}>
+                                    <MenuItem key={country?._id} value={country?.name}>
                                         {country?.name}
                                     </MenuItem>
                                 ))}

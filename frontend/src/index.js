@@ -8,18 +8,22 @@ import theme from "./util/theme";
 import { Provider as ReduxProvider } from 'react-redux';
 // redux
 import { store, persistor } from './redux/store';
+import { SnackbarProvider } from "notistack";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <ReduxProvider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <BrowserRouter>
-                <ThemeProvider theme={theme}>
-                    <App />
-                </ThemeProvider>
-            </BrowserRouter>
-        </PersistGate>
+            <PersistGate loading={null} persistor={persistor}>
+                <BrowserRouter>
+                    <ThemeProvider theme={theme}>
+                        <SnackbarProvider variant="success" 
+                        anchorOrigin={ { vertical: 'top', horizontal: 'right'} } >
+                            <App />
+                        </SnackbarProvider>
+                    </ThemeProvider>
+                </BrowserRouter>
+            </PersistGate>
         </ReduxProvider>
     </React.StrictMode>
 );

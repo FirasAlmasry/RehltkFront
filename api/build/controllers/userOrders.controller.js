@@ -114,20 +114,21 @@ var createUserOrders = /*#__PURE__*/function () {
         case 5:
           data = _context3.sent;
           _context3.next = 8;
-          return GoogleSheetService.addOrder(req.data);
+          return GoogleSheetService.addOrder(req.body);
         case 8:
           res.status(_httpStatusCodes["default"].CREATED).json({
             code: _httpStatusCodes["default"].CREATED,
             data: data,
             message: "User Orders created successfully"
           });
-          _context3.next = 14;
+          _context3.next = 15;
           break;
         case 11:
           _context3.prev = 11;
           _context3.t0 = _context3["catch"](0);
+          console.log("🚀 ~ file: userOrders.controller.js:61 ~ createUserOrders ~ error:", _context3.t0);
           next(_context3.t0);
-        case 14:
+        case 15:
         case "end":
           return _context3.stop();
       }

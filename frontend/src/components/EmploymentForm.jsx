@@ -25,6 +25,7 @@ import * as Yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAddEmploymentMutation } from "../state/ApiEmployment";
+import { enqueueSnackbar } from "notistack";
 
 const citys = [
     "الرياض",
@@ -58,12 +59,11 @@ function EmploymentForm() {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await addEmployment(data)
-            console.log("DATA", data);
-            reset(data)
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            await addEmployment(data).unwrap()
+            enqueueSnackbar("تم ارسال البيانات بنجاح")
+            reset()
         } catch (error) {
-            console.error(error);
+            enqueueSnackbar(error.data.message, {variant: 'error'});
         }
     };
     return (

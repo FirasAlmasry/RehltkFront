@@ -55,7 +55,8 @@ var requestPasswordReset = /*#__PURE__*/function () {
             createdAt: Date.now()
           }).save();
         case 17:
-          link = "".concat(process.env.CLIENT_URL, "/new-password?token=").concat(resetToken, "&id=").concat(user._id); // const link = `${process.env.CLIENT_URL}/resetPassword?token=${resetToken}&id=${user._id}`;
+          link = "".concat(process.env.CLIENT_URL, "/auth/new-password?token=").concat(resetToken, "&id=").concat(user._id); // const link = `${process.env.CLIENT_URL}/new-password?token=${resetToken}&id=${user._id}`;
+          // const link = `${process.env.CLIENT_URL}/resetPassword?token=${resetToken}&id=${user._id}`;
           (0, _sendEmail["default"])(user.email, 'Password Reset Request', {
             name: user.name,
             link: link

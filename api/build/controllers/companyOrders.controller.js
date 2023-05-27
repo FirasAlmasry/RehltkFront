@@ -114,7 +114,7 @@ var createCompanyOrders = /*#__PURE__*/function () {
         case 5:
           data = _context3.sent;
           _context3.next = 8;
-          return GoogleSheetService.addCoumpanyOrder(req.data);
+          return GoogleSheetService.addCoumpanyOrder(req.body);
         case 8:
           res.status(_httpStatusCodes["default"].CREATED).json({
             code: _httpStatusCodes["default"].CREATED,

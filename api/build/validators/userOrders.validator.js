@@ -9,10 +9,12 @@ var _joi = _interopRequireDefault(require("@hapi/joi"));
 var newUserOrdersValidator = function newUserOrdersValidator(data) {
   var schema = _joi["default"].object({
     name: _joi["default"].string().min(4).required(),
-    address: _joi["default"].string().min(4).required(),
+    address: _joi["default"].string().required(),
+    country: _joi["default"].string().required(),
     email: _joi["default"].string().email().required(),
     phone: _joi["default"].string().min(4).required(),
-    description: _joi["default"].string().min(4).required()
+    description: _joi["default"].string().min(4).required(),
+    bookingFlight: _joi["default"].string().required()
   });
   return schema.validate(data);
 };

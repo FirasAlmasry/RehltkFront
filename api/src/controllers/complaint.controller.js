@@ -51,7 +51,7 @@ export const createComplaint = async (req, res, next) => {
         await ComplaintService.isCreateComplaintDataValide(req.body);
 
         const data = await ComplaintService.createComplaint(req.body);
-        await GoogleSheetService.addComplaint(req.data);
+        await GoogleSheetService.addComplaint(req.body);
         res.status(HttpStatus.CREATED).json({
             code: HttpStatus.CREATED,
             data: data,

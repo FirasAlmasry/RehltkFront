@@ -19,6 +19,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useAddCompanyMutation } from "../state/ApiCompany";
+import { enqueueSnackbar } from "notistack";
 
 const citys = [
     "الرياض",
@@ -53,12 +54,12 @@ function CompaniesForm() {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await addCompany(data)
-            console.log("DATA", data);
-            reset(data)
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            await addCompany(data).unwrap()
+            reset()
+            enqueueSnackbar("تم ارسال البيانات بنجاح")
+            reset()
         } catch (error) {
-            console.error(error);
+            enqueueSnackbar(error.data.message, {variant: 'error'});
         }
     };
     return (

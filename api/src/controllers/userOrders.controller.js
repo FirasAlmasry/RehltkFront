@@ -51,13 +51,14 @@ export const createUserOrders = async (req, res, next) => {
         await UserOrdersService.isCreateUserOrdersDataValide(req.body);
 
         const data = await UserOrdersService.createUserOrders(req.body);
-        await GoogleSheetService.addOrder(req.data);
+        await GoogleSheetService.addOrder(req.body);
         res.status(HttpStatus.CREATED).json({
             code: HttpStatus.CREATED,
             data: data,
             message: "User Orders created successfully",
         });
     } catch (error) {
+        console.log("🚀 ~ file: userOrders.controller.js:61 ~ createUserOrders ~ error:", error)
         next(error);
     }
 };
