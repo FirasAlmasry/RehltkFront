@@ -108,7 +108,6 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
     const [editSales, { isSalesLoading }] = useEditSalesMutation()
     const user = JSON.parse(localStorage.getItem('user'))
     const onSubmit = async (formData) => {
-        console.log(formData);
         try {
             formData.employee = user._id || ''
             // eslint-disable-next-line no-lone-blocks
@@ -120,11 +119,8 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.salse.list);
-            console.log("formData", formData);
         } catch (error) {
-            console.log(error);
             enqueueSnackbar(error.data.message, {variant: 'error'});
-            console.error(error);
         }
     };
 

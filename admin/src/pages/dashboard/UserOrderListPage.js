@@ -44,7 +44,7 @@ import {
     EmploymentOrderTableRow,
 } from "../../sections/@dashboard/consulting/orderList";
 import { useGetUserQuery } from "../../state/apiUser";
-import { useGetUserOrderQuery } from "../../state/ApiUserOrders";
+import { useDeleteUserOrdersMutation, useGetUserOrderQuery } from "../../state/ApiUserOrders";
 
 // ----------------------------------------------------------------------
 
@@ -95,9 +95,7 @@ export default function EmploymentOrderListPage() {
     const navigate = useNavigate();
 
     const {data, isLoading}  = useGetUserOrderQuery({page : page + 1, limit: rowsPerPage});
-    console.log("🚀 ~ file: UserOrderListPage.js:97 ~ EmploymentOrderListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
-    console.log("🚀 ~ file: UserOrderListPage.js:98 ~ EmploymentOrderListPage ~ tableData:", tableData)
     useEffect(() => {
         if(data) {
           setTableData(data.data.userOrders)
@@ -156,9 +154,10 @@ export default function EmploymentOrderListPage() {
         setPage(0);
         setFilterRole(event.target.value);
     };
-
-    const handleDeleteRow = (id) => {
-        const deleteRow = tableData.filter((row) => row.id !== id);
+    const [deleteUserOrder] = useDeleteUserOrdersMutation()
+    const handleDeleteRow = async (id) => {
+        await deleteUserOrder(id);
+        const deleteRow = tableData.filter((row) => row._id !== id);
         setSelected([]);
         setTableData(deleteRow);
 
@@ -171,7 +170,7 @@ export default function EmploymentOrderListPage() {
 
     const handleDeleteRows = (selectedRows) => {
         const deleteRows = tableData.filter(
-            (row) => !selectedRows.includes(row.id)
+            (row) => !selectedRows.includes(row._id)
         );
         setSelected([]);
         setTableData(deleteRows);

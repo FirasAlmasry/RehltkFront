@@ -71,3 +71,5 @@ sales   route
 /sales  post
 /sales/id   patch
 /sales/id   delete
+
+

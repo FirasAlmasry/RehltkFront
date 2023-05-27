@@ -9,11 +9,12 @@ function NestTourCard({name,imageUrl,id}) {
             sx={{
                 position: "relative",
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 overflow: "inherit",
                 margin: "10px",
                 cursor: "pointer",
-                height:"350px"
+                boxShadow: "none"
             }}
             onClick={() => navigate(`/tourDetails/${id}`)}
         >
@@ -29,11 +30,11 @@ function NestTourCard({name,imageUrl,id}) {
                 variant="h5"
                 component="p"
                 sx={{
-                    position: "absolute",
-                    top: "50px",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
+                    // position: "absolute",
+                    // top: "75px",
+                    // left: 0,
+                    // right: 0,
+                    // bottom: 0,
                     width: "100%",
                     height: "100%",
                     color: "#0D68A1",

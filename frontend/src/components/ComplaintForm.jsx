@@ -35,7 +35,6 @@ function ComplaintForm() {
 
     const [addComplaint, { isLoading }] = useAddComplaintMutation()
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             await addComplaint(data).unwrap()
             enqueueSnackbar("تم ارسال البيانات بنجاح")

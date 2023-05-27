@@ -97,7 +97,6 @@ export default function CompanyNewEditForm({ isEdit = false, currentCompany }) {
     const [addCompany, { isLoading }] = useAddCompanyMutation()
     const [editCompany] = useEditCompanyMutation()
     const onSubmit = async (formData) => {
-        console.log(formData);
         try {
             // eslint-disable-next-line no-lone-blocks
             {isEdit?
@@ -108,7 +107,6 @@ export default function CompanyNewEditForm({ isEdit = false, currentCompany }) {
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.company.list);
-            console.log("DATA", formData);
         } catch (error) {
             enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);

@@ -13,7 +13,6 @@ export const ApiCountry = api.injectEndpoints({
       },
       // Always merge incoming data to the cache entry
       merge(currentCacheData, responseData, _meta, args) {
-        console.log( responseData.data , currentCacheData.data)
         if(responseData.data.page === 1 && !currentCacheData.data.page) {
           return responseData;
         }

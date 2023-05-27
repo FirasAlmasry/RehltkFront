@@ -91,7 +91,6 @@ export default function CountryNewEditForm({ isEdit = false, currentCountry }) {
     const [addCountry, { isLoading }] = useAddCountryMutation()
     const [editCountry] = useEditCountryMutation()
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             const formData = new FormData();
             formData.append("name", data.name);
@@ -107,7 +106,6 @@ export default function CountryNewEditForm({ isEdit = false, currentCountry }) {
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.country.list);
-            console.log("DATA", data);
         } catch (error) {
             enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);

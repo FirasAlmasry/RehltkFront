@@ -35,12 +35,10 @@ export default function AuthResetPasswordForm() {
     try {
       
       let passWord = await resPass(data).unwrap()
-      console.log(passWord);
       sessionStorage.setItem('email-recovery', data.email);
       enqueueSnackbar("Send Message to Email");
       // navigate(PATH_AUTH.newPassword);
     } catch (error) {
-      console.error(error);
       enqueueSnackbar(error.data.message, {variant: 'error'});
     }
   };

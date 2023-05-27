@@ -87,9 +87,7 @@ export default function UserListPage() {
 
   const navigate = useNavigate();
   const {data, isUserLoading}  = useGetUserQuery({page : page + 1, limit: rowsPerPage});
-  console.log("🚀 ~ file: UserListPage.js:93 ~ UserListPage ~ data:", data)
   const [tableData, setTableData] = useState([]);
-  console.log("🚀 ~ file: UserListPage.js:93 ~ UserListPage ~ tableData:", tableData)
   useEffect(() => {
     if(data && !isUserLoading ) {
       setTableData(data.data.users)

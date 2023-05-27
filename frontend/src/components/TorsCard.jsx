@@ -10,6 +10,7 @@ function TorsCard({name,imageUrl,id}) {
             sx={{
                 position: "relative",
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 borderRadius: "60px",
                 overflow: "inherit",

@@ -28,9 +28,12 @@ app.use((0, _cors["default"])({
 }));
 app.use((0, _helmet["default"])());
 app.use(_express["default"].urlencoded({
-  extended: true
+  extended: true,
+  limit: '50mb'
 }));
-app.use(_express["default"].json());
+app.use(_express["default"].json({
+  limit: '50mb'
+}));
 app.use((0, _morgan["default"])('combined', {
   stream: _logger.logStream
 }));

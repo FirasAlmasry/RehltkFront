@@ -28,7 +28,7 @@ const ICONS = {
     folder: icon("ic_folder"),
     banking: icon("ic_banking"),
     booking: icon("ic_booking"),
-    // invoice: icon("ic_invoice"),
+    invoice: icon("ic_invoice"),
     calendar: icon("ic_calendar"),
     disabled: icon("ic_disabled"),
     external: icon("ic_external"),
@@ -71,40 +71,51 @@ const navConfig = [
                     {title: "Order list", path: PATH_DASHBOARD.user.orderList },
                 ],
             },
-            // Employment
+            // salse
             {
-                title: "employment",
-                path: PATH_DASHBOARD.employment.root,
-                icon: ICONS.user,
+                title: "salse",
+                path: PATH_DASHBOARD.salse.root,
+                icon: ICONS.invoice,
                 children: [
-                    { title: "list", path: PATH_DASHBOARD.employment.list },
-                    { title: "create", path: PATH_DASHBOARD.employment.new },
-                    {title: "Order list", path: PATH_DASHBOARD.employment.orderList },
-                ],
-            },
-            // company
-            {
-                title: "company",
-                path: PATH_DASHBOARD.company.root,
-                icon: ICONS.booking,
-                children: [
-                    { title: "list", path: PATH_DASHBOARD.company.list },
-                    { title: "create", path: PATH_DASHBOARD.company.new },
-                    {title: "Order list", path: PATH_DASHBOARD.company.orderList },
+                    { title: "list", path: PATH_DASHBOARD.salse.list },
+                    { title: "create", path: PATH_DASHBOARD.salse.new },
+                    // {title: "Order list", path: PATH_DASHBOARD.salse.orderList },
                 ],
             },
             // country
             {
                 title: "country",
                 path: PATH_DASHBOARD.country.root,
-                icon: ICONS.booking,
+                icon: ICONS.folder,
                 children: [
                     { title: "list", path: PATH_DASHBOARD.country.list },
                     { title: "create", path: PATH_DASHBOARD.country.new },
                     // {title: "Order list", path: PATH_DASHBOARD.country.orderList },
                 ],
             },
-            // country
+            // tour
+            {
+                title: "tour",
+                path: PATH_DASHBOARD.tour.root,
+                icon: ICONS.folder,
+                children: [
+                    { title: "list", path: PATH_DASHBOARD.tour.list },
+                    { title: "create", path: PATH_DASHBOARD.tour.new },
+                    // {title: "Order list", path: PATH_DASHBOARD.tour.orderList },
+                ],
+            },
+            // company
+            {
+                title: "company",
+                path: PATH_DASHBOARD.company.root,
+                icon: ICONS.invoice,
+                children: [
+                    { title: "list", path: PATH_DASHBOARD.company.list },
+                    { title: "create", path: PATH_DASHBOARD.company.new },
+                    {title: "Order list", path: PATH_DASHBOARD.company.orderList },
+                ],
+            },
+            // complaint
             {
                 title: "complaint",
                 path: PATH_DASHBOARD.complaint.root,
@@ -115,26 +126,15 @@ const navConfig = [
                     // {title: "Order list", path: PATH_DASHBOARD.complaint.orderList },
                 ],
             },
-            // tour
+            // Employment
             {
-                title: "tour",
-                path: PATH_DASHBOARD.tour.root,
-                icon: ICONS.booking,
+                title: "employment",
+                path: PATH_DASHBOARD.employment.root,
+                icon: ICONS.user,
                 children: [
-                    { title: "list", path: PATH_DASHBOARD.tour.list },
-                    { title: "create", path: PATH_DASHBOARD.tour.new },
-                    // {title: "Order list", path: PATH_DASHBOARD.tour.orderList },
-                ],
-            },
-            // salse
-            {
-                title: "salse",
-                path: PATH_DASHBOARD.salse.root,
-                icon: ICONS.booking,
-                children: [
-                    { title: "list", path: PATH_DASHBOARD.salse.list },
-                    { title: "create", path: PATH_DASHBOARD.salse.new },
-                    // {title: "Order list", path: PATH_DASHBOARD.salse.orderList },
+                    { title: "list", path: PATH_DASHBOARD.employment.list },
+                    { title: "create", path: PATH_DASHBOARD.employment.new },
+                    {title: "Order list", path: PATH_DASHBOARD.employment.orderList },
                 ],
             },
         ],

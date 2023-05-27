@@ -23,10 +23,9 @@ const api_version = process.env.API_VERSION;
 
 app.use(cors({origin:'*', methods: "GET,HEAD,PUT,PATCH,POST,DELETE"}));
 app.use(helmet());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({limit: '50mb'}));
 app.use(morgan('combined', { stream: logStream }));
-
 database();
 
 app.use(`/api/${api_version}`, routes());

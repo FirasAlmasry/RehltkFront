@@ -89,7 +89,6 @@ export default function EmploymentListPage() {
     const navigate = useNavigate();
 
     const { data, isLoading } = useGetEmploymentQuery({page : page + 1, limit: rowsPerPage});
-    console.log("🚀 ~ file: EmploymentListPage.js:92 ~ EmploymentListPage ~ data:", data)
     const [tableData, setTableData] = useState([]);
     useEffect(() => {
         if (data) {

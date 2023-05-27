@@ -13,9 +13,6 @@ export const ApiTours = api.injectEndpoints({
       },
       // Always merge incoming data to the cache entry
       merge(currentCacheData, responseData, _meta, args) {
-        console.log( responseData.data.page , currentCacheData.data.page)
-        console.log("🚀 ~ file: ApiUserOrders.js:17 ~ merge ~ currentCacheData:", currentCacheData)
-        console.log("🚀 ~ file: ApiUserOrders.js:17 ~ merge ~ responseData:", responseData)
         if(responseData.data.page === 1 && !currentCacheData.data.page) {
           return responseData;
         }
@@ -40,6 +37,17 @@ export const ApiTours = api.injectEndpoints({
       }),
       invalidatesTags: ['users'],
     }),
+    deleteUserOrders: build.mutation({
+      query: (id) => ({
+        url: `/user-orders/${id}`,
+        method: 'Delete',
+        body: build,
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }),
+      invalidatesTags: ['users'],
+    }),
   }),
 });
 
@@ -47,4 +55,5 @@ export const ApiTours = api.injectEndpoints({
 export const {
   useGetUserOrderQuery,
   useAddUserOrderMutation,
+  useDeleteUserOrdersMutation
 } = ApiTours;

@@ -113,12 +113,10 @@ export default function TourNewEditForm({ isEdit = false, currentTour }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isEdit, currentTour]);
     const { data, isLoading: isCountryLoading } = useGetCountryQuery({page: 1, limit: 200});
-    console.log("🚀 ~ file: TourNewEditForm.js:116 ~ TourNewEditForm ~ data:", data)
     const [addTours, { isLoading }] = useAddToursMutation()
     const [editTours, { isToursLoading }] = useEditToursMutation()
 
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             const formData = new FormData();
             formData.append("title", data.title);
@@ -137,10 +135,8 @@ export default function TourNewEditForm({ isEdit = false, currentTour }) {
             reset();    
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.tour.list);
-            console.log("DATA", formData);
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
-            console.error(error);
         }
     };
 

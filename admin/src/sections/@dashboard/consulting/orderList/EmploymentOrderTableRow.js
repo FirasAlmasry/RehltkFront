@@ -85,7 +85,48 @@ export default function EmploymentOrderTableRow({
                 <TableCell align="left">
                     {phone}
                 </TableCell>
+                <TableCell align="right">
+                    <IconButton
+                        color={openPopover ? "inherit" : "default"}
+                        onClick={handleOpenPopover}
+                    >
+                        <Iconify icon="eva:more-vertical-fill" />
+                    </IconButton>
+                </TableCell>
             </TableRow>
+            <MenuPopover
+                open={openPopover}
+                onClose={handleClosePopover}
+                arrow="right-top"
+                sx={{ width: 140 }}
+            >
+                <MenuItem
+                    onClick={() => {
+                        handleOpenConfirm();
+                        handleClosePopover();
+                    }}
+                    sx={{ color: "error.main" }}
+                >
+                    <Iconify icon="eva:trash-2-outline" />
+                    Delete
+                </MenuItem>
+            </MenuPopover>
+
+            <ConfirmDialog
+                open={openConfirm}
+                onClose={handleCloseConfirm}
+                title="Delete"
+                content="Are you sure want to delete?"
+                action={
+                    <Button
+                        variant="contained"
+                        color="error"
+                        onClick={onDeleteRow}
+                    >
+                        Delete
+                    </Button>
+                }
+            />
         </>
     );
 }

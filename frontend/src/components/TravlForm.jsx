@@ -67,16 +67,14 @@ function TravlForm() {
     const { register, handleSubmit, reset, formState: { errors }, control } = useForm({
         resolver: yupResolver(NewComplaintSchema),
     });
-    console.log(errors);
     const [bookingFlight, setBookingFlight] = useState(null);
     const { data, isLoading: isCountryLoading } = useGetCountryQuery()
     const [addUserOrder, { isLoading }] = useAddUserOrderMutation()
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             data.bookingFlight = bookingFlight
             await addUserOrder(data).unwrap()
-            console.log("DATA", data);
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
         } catch (error) {

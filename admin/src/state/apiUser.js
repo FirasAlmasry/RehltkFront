@@ -22,7 +22,6 @@ export const api = createApi({
       },
       // Always merge incoming data to the cache entry
       merge(currentCacheData, responseData, _meta, args) {
-        console.log( responseData.data.page , currentCacheData.data.page)
         if(responseData.data.page === 1 && !currentCacheData.data.page) {
           return responseData;
         }

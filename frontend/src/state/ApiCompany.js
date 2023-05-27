@@ -3,7 +3,7 @@ import { api } from "./apiTours";
 
 export const ApiCompany = api.injectEndpoints({
   reducerPath: "apiTours",
-  tagTypes: ["company","addCompany"],
+  tagTypes: ["company"],
   endpoints: (build) => ({
     addCompany: build.mutation({
       query: (build) => ({

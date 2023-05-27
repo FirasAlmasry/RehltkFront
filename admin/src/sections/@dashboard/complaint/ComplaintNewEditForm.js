@@ -98,7 +98,6 @@ export default function ComplaintNewEditForm({ isEdit = false, currentComplaint 
     const [addComplaint, { isLoading }] = useAddComplaintMutation()
     const [editComplaint] = useEditComplaintMutation()
     const onSubmit = async (formData) => {
-        console.log(formData);
         try {
             // eslint-disable-next-line no-lone-blocks
             {isEdit?
@@ -109,7 +108,6 @@ export default function ComplaintNewEditForm({ isEdit = false, currentComplaint 
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.complaint.list);
-            console.log("DATA", formData);
         } catch (error) {
             enqueueSnackbar(error.data.message , {variant: 'error'})
             console.error(error);

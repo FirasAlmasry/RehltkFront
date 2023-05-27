@@ -6,7 +6,7 @@ import ServiseCard from "./ServiseCard";
 
 function ToursList() {
     const [allCountryData, setAllCountryData] = useState([]);
-    const { data, isLoading } = useGetCountryQuery();
+    const { data, isLoading } = useGetCountryQuery({page: 1, limit: 200});
     useEffect(() => {
         if (data) {
             setAllCountryData(data.data.countrys)
@@ -27,7 +27,7 @@ function ToursList() {
                     )
                 }
             </Grid>
-            <Divider
+            {/* <Divider
                 primary="Inbox"
                 sx={{
                     my: 8,
@@ -55,7 +55,7 @@ function ToursList() {
                         image="/images/حجز طيران.jpg"
                     />
                 </Grid>
-            </Grid>
+            </Grid> */}
         </>
     );
 }

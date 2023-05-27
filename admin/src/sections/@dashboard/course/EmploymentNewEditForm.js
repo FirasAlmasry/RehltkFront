@@ -95,7 +95,6 @@ export default function EmploymentNewEditForm({ isEdit = false, currentEmploymen
     const [addEmployment, { isLoading }] = useAddEmploymentMutation()
     const [editEmployment, { isEmplolymentLoading }] = useEditEmploymentMutation()
     const onSubmit = async (formData) => {
-        console.log(formData);
         try {
             // eslint-disable-next-line no-lone-blocks
             {isEdit?await editEmployment({formData, id: currentEmployment._id }):await addEmployment(formData)}
@@ -103,7 +102,6 @@ export default function EmploymentNewEditForm({ isEdit = false, currentEmploymen
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
             navigate(PATH_DASHBOARD.employment.list);
-            console.log("DATA", formData);
         } catch (error) {
             console.error(error);
         }
