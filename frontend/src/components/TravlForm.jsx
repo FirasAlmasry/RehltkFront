@@ -57,9 +57,9 @@ const citys = [
 
 function TravlForm() {
     const NewComplaintSchema = Yup.object().shape({
-        name: Yup.string().required("title ar is required"),
-        description: Yup.string().required("description ar is required"),
-        email: Yup.string().required("Email is required"),
+        // name: Yup.string().required("title ar is required"),
+        // description: Yup.string().required("description ar is required"),
+        // email: Yup.string().required("Email is required"),
         address: Yup.string().required("Address is required"),
         phone: Yup.string().required("phone is required"),
         country: Yup.string().required("country is required"),
@@ -94,10 +94,10 @@ function TravlForm() {
                     maxWidth: 600,
                 }}
             >
-                للطلب والأستفسار يرجي تزودينا ببياناتك وسنقوم  بالنتواصل معك في اسرع وقت :
+                للطلب والأستفسار يرجي تزودينا ببياناتك وسنقوم  بالتواصل معك في اسرع وقت :
             </Typography>
             <Box component="form" gap={20} onSubmit={handleSubmit(onSubmit)}>
-                <Box display={"flex"} gap={2} alignItems={"center"}>
+                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
                     <PermIdentityOutlinedIcon />
                     <Typography
                         variant="h6"
@@ -121,7 +121,7 @@ function TravlForm() {
                         backgroundColor: "#FFF",
                         borderBottom: "1px solid",
                     }}
-                />
+                /> */}
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                     <PhoneEnabledOutlinedIcon />
                     <Typography
@@ -146,9 +146,9 @@ function TravlForm() {
                         borderBottom: "1px solid",
                     }}
                 />
-                <Box display={"flex"} gap={2} alignItems={"center"}>
-                    <EmailOutlinedIcon />
-                    <Typography
+                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
+                    <EmailOutlinedIcon /> */}
+                    {/* <Typography
                         variant="h6"
                         component="h3"
                         sx={{
@@ -169,7 +169,7 @@ function TravlForm() {
                         backgroundColor: "#FFF",
                         borderBottom: "1px solid",
                     }}
-                />
+                /> */}
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                     <LocationOnOutlinedIcon />
                     <Typography
@@ -234,7 +234,7 @@ function TravlForm() {
                         </MenuItem>
                     ))}
                 </TextField>
-                <Box display={"flex"} gap={2} alignItems={"center"}>
+                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
                     <ForumOutlinedIcon />
                     <Typography
                         variant="h6"
@@ -246,8 +246,8 @@ function TravlForm() {
                     >
                         وصف الطلب
                     </Typography>
-                </Box>
-                <TextField
+                </Box> */}
+                {/* <TextField
                     fullWidth
                     {...register('description')}
                     required
@@ -256,9 +256,20 @@ function TravlForm() {
                         backgroundColor: "#FFF",
                         borderBottom: "1px solid",
                     }}
-                />
+                /> */}
                 <br />
                 <br />
+                <Typography
+                        variant="h6"
+                        component="h3"
+
+                        sx={{
+                            mb: 1,
+                            maxWidth: 600,
+                        }}
+                    >
+                    هل تم حجز الطيران ؟
+                    </Typography>
                 <FormControl
                     color="secondary"
                     required

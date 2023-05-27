@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import "./SotialIcon.css"
 function SotialIcon() {
     return (
-        <Stack direction="row" gap={3} justifyContent={"center"} margin={"0 1%"}>
+        <Stack direction="row" gap={3} justifyContent={"center"} margin={"0 1%"} flexWrap={{ md:"nowrap", xs: "wrap"  }} >
             <Link
                 to="https://www.facebook.com/profile.php?id=100091383402355&mibextid=ZbWKwL"
                 style={{

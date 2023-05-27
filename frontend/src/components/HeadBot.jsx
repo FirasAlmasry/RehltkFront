@@ -16,13 +16,12 @@ function HeadBot() {
                     fontSize: "20px",
 
                 }} >
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >حجز برامج سياحية </Typography>
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >تأشيرات سياحية</Typography>
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >حجز طيران</Typography>
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >حجز فنادق </Typography>
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >رخصة دولية </Typography>
-                    <Typography style={{ margin: "10px", cursor: "pointer", fontSize: "26px" }} >خطط لسفرتك بكل سهولة مع رحلتك للسفر والسياحة </Typography>
-
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >حجز برامج سياحية </Typography>
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >تأشيرات سياحية</Typography>
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >حجز طيران</Typography>
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >حجز فنادق </Typography>
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >رخصة دولية </Typography>
+                    <Typography style={{ margin: "20px", cursor: "pointer", fontSize: "26px" }} >خطط لسفرتك بكل سهولة مع رحلتك للسفر والسياحة </Typography>
                 </Marquee>
             </Box>
         </>

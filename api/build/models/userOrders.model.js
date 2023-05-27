@@ -8,14 +8,14 @@ exports["default"] = void 0;
 var _mongoose = require("mongoose");
 var _mongoosePaginateV = _interopRequireDefault(require("mongoose-paginate-v2"));
 var userOrdersSchema = new _mongoose.Schema({
-  name: {
-    type: String,
-    require: true
-  },
-  email: {
-    type: String,
-    require: true
-  },
+  // name: {
+  //     type: String,
+  //     require: true,
+  // },
+  // email: {
+  //     type: String,
+  //     require: true,
+  // },
   address: {
     type: String,
     require: true
@@ -24,10 +24,10 @@ var userOrdersSchema = new _mongoose.Schema({
     type: String,
     require: true
   },
-  description: {
-    type: String,
-    require: true
-  },
+  // description: {
+  //     type: String,
+  //     require: true,
+  // },
   phone: {
     type: String,
     require: true

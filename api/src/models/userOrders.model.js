@@ -3,14 +3,14 @@ import mongoosePaginate from "mongoose-paginate-v2";
 
 const userOrdersSchema = new Schema(
     {
-        name: {
-            type: String,
-            require: true,
-        },
-        email: {
-            type: String,
-            require: true,
-        },
+        // name: {
+        //     type: String,
+        //     require: true,
+        // },
+        // email: {
+        //     type: String,
+        //     require: true,
+        // },
         address: {
             type: String,
             require: true,
@@ -19,10 +19,10 @@ const userOrdersSchema = new Schema(
             type: String,
             require: true,
         },
-        description: {
-            type: String,
-            require: true,
-        },
+        // description: {
+        //     type: String,
+        //     require: true,
+        // },
         phone: {
             type: String,
             require: true,
