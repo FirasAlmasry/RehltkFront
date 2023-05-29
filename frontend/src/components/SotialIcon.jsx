@@ -19,6 +19,7 @@ function SotialIcon() {
                     fontSize: 15,
                     fontWeight: "bold",
                 }}
+                
             >
                 {/* <FacebookIcon sx={{     width: "100%",
     height: "46px",
