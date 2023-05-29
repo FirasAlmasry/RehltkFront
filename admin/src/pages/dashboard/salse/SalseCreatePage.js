@@ -8,12 +8,18 @@ import { useSettingsContext } from "../../../components/settings";
 import CustomBreadcrumbs from "../../../components/custom-breadcrumbs";
 // sections
 import SalseNewEditForm from "../../../sections/@dashboard/salse/SalseNewEditForm";
+import { useNavigate } from "react-router-dom";
 
 // ----------------------------------------------------------------------
 
 export default function SalseCreatePage() {
     const { themeStretch } = useSettingsContext();
-
+    const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log(user.roles.includes("superAdmin"))
+    // if(!user.roles.includes("superAdmin")) {
+    //    return navigate(PATH_DASHBOARD.user.list);
+    // }
     return (
         <>
             <Helmet>

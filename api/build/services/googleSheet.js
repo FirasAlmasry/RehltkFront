@@ -236,12 +236,17 @@ function _addSales() {
             الدولة: data.country,
             "سعر تكلفة الباكدج بدون الطيران": data.packageWithoutFlightCost,
             "تكلفة الطيران": data.flightCost,
-            "سعر بيع الباكدج": data.PackagePrice,
+            "سعر بيع الباكدج": data.packagePrice,
             المدينة: data.city,
             التاريخ: getCurrentData(),
             الوقت: new Date().toLocaleTimeString(),
             الموظف: data.employee,
-            "اسم الوكيل": data.agent
+            "اسم الوكيل": data.agent,
+            "المبلغ الذي تم دفعه": data.theAmountPaid,
+            "عربون ام دفع كامل": data.depositOrFullPayment,
+            "تاريخ العودة": data.returnDate,
+            "تاريخ السفر": data.dateOfTravel,
+            "تاريخ الدفع": data.paymentDate
           };
           _context5.next = 10;
           return sheet.addRow(formatedData);

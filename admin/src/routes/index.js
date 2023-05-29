@@ -239,7 +239,7 @@ export default function Router() {
                         },
                         // { path: 'profile', element: <UserProfilePage /> },
                         // { path: 'cards', element: <UserCardsPage /> },
-                        { path: "list", element: <SalseListPage /> },
+                        // { path: "list", element: <SalseListPage /> },
                         { path: "new", element: <SalseCreatePage /> },
                         // {
                         //     path: "order-list",

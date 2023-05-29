@@ -11,6 +11,11 @@ export const newSalesValidator = (data) => {
         packageWithoutFlightCost: Joi.number().min(4).required(),
         flightCost: Joi.number().min(4).required(),
         packagePrice: Joi.number().min(4).required(),
+        theAmountPaid: Joi.number().required(),
+        depositOrFullPayment: Joi.string().required(),
+        returnDate: Joi.date().required(),
+        dateOfTravel: Joi.date().required(),
+        paymentDate: Joi.date().required(),
     });
 
     return schema.validate(data);

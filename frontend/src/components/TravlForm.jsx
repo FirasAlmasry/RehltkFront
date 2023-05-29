@@ -74,12 +74,12 @@ function TravlForm() {
         try {
             data.bookingFlight = bookingFlight
             await addUserOrder(data).unwrap()
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     };
     return (
         <Box>

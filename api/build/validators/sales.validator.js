@@ -16,7 +16,12 @@ var newSalesValidator = function newSalesValidator(data) {
     agent: _joi["default"].string().min(4).required(),
     packageWithoutFlightCost: _joi["default"].number().min(4).required(),
     flightCost: _joi["default"].number().min(4).required(),
-    packagePrice: _joi["default"].number().min(4).required()
+    packagePrice: _joi["default"].number().min(4).required(),
+    theAmountPaid: _joi["default"].number().required(),
+    depositOrFullPayment: _joi["default"].string().required(),
+    returnDate: _joi["default"].date().required(),
+    dateOfTravel: _joi["default"].date().required(),
+    paymentDate: _joi["default"].date().required()
   });
   return schema.validate(data);
 };

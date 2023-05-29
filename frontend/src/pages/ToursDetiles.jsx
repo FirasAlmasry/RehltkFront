@@ -20,7 +20,9 @@ function ToursDetiles() {
     
     const theme = useTheme();
     return (
-        <Box>
+    <>
+            <Box>
+
             <IconSo />
             <img
                 src={tourData.imageUrl}
@@ -41,33 +43,34 @@ function ToursDetiles() {
                     {tourData.title}
                 </Typography>
                 <Typography
-                    variant="h3"
+                    variant="h5"
                     sx={{
-                        mb: 5,
-                        typography: { xs: "h5", md: "h3" },
+                        mb: 2,
+                        typography: { xs: "h5", md: "h5" },
                     }}
                 >
-                    
                     {tourData.subTitle}
                 </Typography>
                 <Typography
                     variant="h3"
                     sx={{
-                        mb: 5,
+                        mb: 2,
                         typography: { xs: "h5", md: "h5" },
                     }}
-                    color={theme.palette.secondary.main}
+                    // color={theme.palette.secondary.main}
                 >
                     <div className="task-des" dangerouslySetInnerHTML={{
                     __html: tourData.description
                 }}></div>
                         {/* {tourData.description} */}
                 </Typography>
+                {/* <SimpleAccordion /> */}
                 <Section title="أحجز الأن">
                 <TravlForm />
             </Section>
             </Container>
         </Box>
+    </>
     );
 }
 

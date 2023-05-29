@@ -60,11 +60,11 @@ function EmploymentForm() {
         try {
             await addEmployment(data).unwrap()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             reset()
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     };
     return (
         <Box>

@@ -171,6 +171,7 @@ export const TourEditPage = Loadable(
 export const SalseListPage = Loadable(
     lazy(() => import("../pages/dashboard/salse/SalseListPage"))
 );
+
 export const SalseCreatePage = Loadable(
     lazy(() => import("../pages/dashboard/salse/SalseCreatePage"))
 );

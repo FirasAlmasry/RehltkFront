@@ -3,7 +3,10 @@ import * as Yup from "yup";
 import { useCallback, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 // form
-import { useForm, Controller } from "react-hook-form";
+import { DatePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { useForm, Controller ,watch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // @mui
 import { LoadingButton } from "@mui/lab";
@@ -15,6 +18,7 @@ import {
     Switch,
     Typography,
     FormControlLabel,
+    TextField,
     InputAdornment,
     MenuItem,
 } from "@mui/material";
@@ -34,7 +38,8 @@ import FormProvider, {
     RHFEditor,
     RHFUploadAvatar,
 } from "../../../components/hook-form";
-
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import { useAddSalesMutation, useEditSalesMutation } from "../../../state/ApiSales";
 import { useGetCountryQuery } from "../../../state/ApiCountry";
 import { useGetEmploymentQuery } from "../../../state/ApiEmployment";
@@ -45,9 +50,10 @@ SalseNewEditForm.propTypes = {
     currentSalse: PropTypes.object,
 };
 
+dayjs.extend(utc);
+
 export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
     const navigate = useNavigate();
-
     const { enqueueSnackbar } = useSnackbar();
 
     const NewSalseSchema = Yup.object().shape({
@@ -55,30 +61,40 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
         // employee: Yup.string().required("employee ar is required"),
         city: Yup.string().required("city ar is required"),
         agent: Yup.string().required("agent ar is required"),
-        packageWithoutFlightCost :Yup.number().required("packageWithoutFlightCost ar is required"),
+        packageWithoutFlightCost: Yup.number().required("packageWithoutFlightCost ar is required"),
         country: Yup.string().required("country is required"),
+        depositOrFullPayment: Yup.string().required("depositOrFullPayment is required"),
         flightCost: Yup.number().required("flightCost is required"),
         packagePrice: Yup.number().required("sub packagePrice is required"),
+        theAmountPaid: Yup.number().required("sub theAmountPaid is required"),
         phone: Yup.string().required("phone is required"),
+        returnDate: Yup.date().required('Due date must be later than create date'),
+        dateOfTravel: Yup.date().required('Due date must be later than create date'),
+        paymentDate: Yup.date().required('Due date must be later than create date'),
     });
 
-    const { data: dataEmp , isLoading: isEmpLoading } = useGetEmploymentQuery();
+    const { data: dataEmp, isLoading: isEmpLoading } = useGetEmploymentQuery();
     const defaultValues = useMemo(
         () => ({
             name: currentSalse?.name || "",
             // employee: currentSalse?.employee || "",
             city: currentSalse?.city || "",
             agent: currentSalse?.agent || "",
-            packageWithoutFlightCost : currentSalse?.packageWithoutFlightCost || 5,
+            packageWithoutFlightCost: currentSalse?.packageWithoutFlightCost || 5,
             phone: currentSalse?.phone || "",
             country: currentSalse?.country || "",
+            depositOrFullPayment: currentSalse?.depositOrFullPayment || "",
             flightCost: currentSalse?.flightCost || 5,
+            theAmountPaid: currentSalse?.theAmountPaid || 5,
             packagePrice: currentSalse?.packagePrice || 5,
+            returnDate: currentSalse?.returnDate || null,
+            dateOfTravel: currentSalse?.dateOfTravel || null,
+            paymentDate: currentSalse?.paymentDate || null,
         }),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [currentSalse]
     );
-    const { data, isLoading: isCountryLoading } = useGetCountryQuery({page: 1, limit: 200});
+    const { data, isLoading: isCountryLoading } = useGetCountryQuery({ page: 1, limit: 200 });
     const methods = useForm({
         resolver: yupResolver(NewSalseSchema),
         defaultValues,
@@ -108,27 +124,31 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
     const [editSales, { isSalesLoading }] = useEditSalesMutation()
     const user = JSON.parse(localStorage.getItem('user'))
     const onSubmit = async (formData) => {
+        console.log("🚀 ~ file: SalseNewEditForm.js:124 ~ onSubmit ~ formData:", formData)
         try {
             formData.employee = user._id || ''
             // eslint-disable-next-line no-lone-blocks
-            {isEdit
-                ? await editSales({formData, id: currentSalse._id}).unwrap()
-                : await addSalse( formData ).unwrap()
+            {
+                isEdit
+                    ? await editSales({ formData, id: currentSalse._id }).unwrap()
+                    : await addSalse(formData).unwrap()
             }
-            
+
             reset();
             enqueueSnackbar(!isEdit ? "Create success!" : "Update success!");
-            navigate(PATH_DASHBOARD.salse.list);
+            navigate(PATH_DASHBOARD.user.list);
         } catch (error) {
-            enqueueSnackbar(error.data.message, {variant: 'error'});
+            console.log("🚀 ~ file: SalseNewEditForm.js:138 ~ onSubmit ~ error:", error)
+            
+            enqueueSnackbar(error.data.message, { variant: 'error' });
         }
     };
 
     return (
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-             <Grid container spacing={3}>
+            <Grid container spacing={3}>
 
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={12}>
                     <Card sx={{ p: 3 }}>
                         <Box
                             rowGap={3}
@@ -136,7 +156,7 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                             display="grid"
                             gridTemplateColumns={{
                                 xs: "repeat(1, 1fr)",
-                                sm: "repeat(2, 1fr)",
+                                sm: "repeat(4, 1fr)",
                             }}
                             alignItems={"center"}
                         >
@@ -163,9 +183,11 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                             </RHFSelect>
                             } */}
                             <RHFTextField name="agent" label="agent" />
-                            <RHFTextField name="packageWithoutFlightCost" label="packageWithoutFlightCost" />
-                            <RHFTextField name="flightCost" label="flightCost" />
-                            <RHFTextField name="packagePrice" label="packagePrice" />
+                            <RHFTextField name="packageWithoutFlightCost" label="package Without FlightCost" />
+                            <RHFTextField name="flightCost" label="flight Cost" />
+                            <RHFTextField name="packagePrice" label="package Price" />
+                            <RHFTextField name="theAmountPaid" label="the Amount Paid" />
+                            <RHFTextField name="depositOrFullPayment" label="deposit Or Full Payment" />
                             {!isCountryLoading && <RHFSelect
                                 name="country"
                                 label="country"
@@ -187,6 +209,61 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                             </RHFSelect>
                             }
                             <RHFTextField name="phone" label="phone" />
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <Controller
+                                name="returnDate"
+                                control={control}
+                                render={({ field, fieldState: { error } }) => (
+                                    <DatePicker
+                                        label="return Date"
+                                        value={dayjs.utc(field.value)}
+                                        onChange={(newValue) => {
+                                            field.onChange(newValue);
+                                        }}
+                                        format="YYYY/MM/DD"
+                                        renderInput={(params) => (
+                                            <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
+                                        )}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                name="dateOfTravel"
+                                control={control}
+                                render={({ field, fieldState: { error } }) => (
+                                    <DatePicker
+                                        label="date Of Travel"
+                                        value={dayjs.utc(field.value)}
+                                        onChange={(newValue) => {
+                                            field.onChange(newValue);
+                                        }}
+                                        format="YYYY/MM/DD"
+                                        renderInput={(params) => (
+                                            <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
+                                        )}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                name="paymentDate"
+                                control={control}
+                                render={({ field, fieldState: { error } }) => (
+                                    <DatePicker
+                                        label="payment Date"
+                                        value={dayjs.utc(field.value)}
+                                        onChange={(newValue) => {
+                                            field.onChange(newValue);
+                                        }}
+                                        format="YYYY/MM/DD"
+                                        renderInput={(params) => (
+                                            <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
+                                        )}
+                                    />
+                                )}
+                            />
+
+                            </LocalizationProvider>
+                            
                         </Box>
                         <Grid
                             item

@@ -138,12 +138,17 @@ export async function addSales(data) {
             الدولة: data.country,
             "سعر تكلفة الباكدج بدون الطيران": data.packageWithoutFlightCost,
             "تكلفة الطيران": data.flightCost,
-            "سعر بيع الباكدج": data.PackagePrice,
+            "سعر بيع الباكدج": data.packagePrice,
             المدينة: data.city,
             التاريخ: getCurrentData(),
             الوقت: new Date().toLocaleTimeString(),
             الموظف: data.employee,
             "اسم الوكيل": data.agent,
+            "المبلغ الذي تم دفعه": data.theAmountPaid,
+            "عربون ام دفع كامل": data.depositOrFullPayment,
+            "تاريخ العودة": data.returnDate,
+            "تاريخ السفر": data.dateOfTravel,
+            "تاريخ الدفع": data.paymentDate,
         };
         await sheet.addRow(formatedData);
         return true;

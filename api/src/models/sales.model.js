@@ -43,6 +43,31 @@ const salesSchema = new Schema(
             type: Number,
             require: true,
         },
+        // "المبلغ الذي تم دفعه"
+        theAmountPaid: {
+            type: Number,
+            require: true,
+        },
+        // "عربون ام دفع كامل"
+        depositOrFullPayment: {
+            type: String,
+            require: true,
+        },
+        // "تاريخ العودة"
+        returnDate: {
+            type: Date,
+            require: true,
+        },
+        // "تاريخ السفر"
+        dateOfTravel: {
+            type: Date,
+            require: true,
+        },
+        // "تاريخ الدفع"
+        paymentDate: {
+            type: Date,
+            require: true,
+        },
     },
     {
         timestamps: true,

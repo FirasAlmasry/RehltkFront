@@ -73,6 +73,7 @@ export function AuthProvider({ children }) {
     try {
       const accessToken = storageAvailable ? localStorage.getItem('accessToken') : '';
       const user = storageAvailable ? JSON.parse(localStorage.getItem('user')) : '';
+      console.log("🚀 ~ file: JwtContext.js:76 ~ initialize ~ user:", user)
 
       if (accessToken && user ) {
         setSession(accessToken);

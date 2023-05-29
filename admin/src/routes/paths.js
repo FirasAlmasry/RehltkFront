@@ -70,10 +70,9 @@ export const PATH_DASHBOARD = {
         demoEdit: path(ROOTS_DASHBOARD, `/user/reece-chung/edit`),
     },
     salse: {
-        root: path(ROOTS_DASHBOARD, "/salse"),
+        root: path(ROOTS_DASHBOARD, "/salse/new"),
         new: path(ROOTS_DASHBOARD, "/salse/new"),
         list: path(ROOTS_DASHBOARD, "/salse/list"),
-        // orderList: path(ROOTS_DASHBOARD, "/salse/order-list"),
         edit: (name) => path(ROOTS_DASHBOARD, `/salse/${name}/edit`),
     },
     country: {

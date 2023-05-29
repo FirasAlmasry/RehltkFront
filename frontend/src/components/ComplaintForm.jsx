@@ -39,10 +39,10 @@ function ComplaintForm() {
             await addComplaint(data).unwrap()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     };
     return (
         <Box>

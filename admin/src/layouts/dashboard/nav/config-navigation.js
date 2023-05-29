@@ -77,7 +77,7 @@ const navConfig = [
                 path: PATH_DASHBOARD.salse.root,
                 icon: ICONS.invoice,
                 children: [
-                    { title: "list", path: PATH_DASHBOARD.salse.list },
+                    // { title: "list", path: PATH_DASHBOARD.salse.list },
                     { title: "create", path: PATH_DASHBOARD.salse.new },
                     // {title: "Order list", path: PATH_DASHBOARD.salse.orderList },
                 ],
