@@ -59,8 +59,8 @@ function EmploymentForm() {
     const onSubmit = async (data) => {
         try {
             await addEmployment(data).unwrap()
-            enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
+            enqueueSnackbar("تم ارسال البيانات بنجاح")
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }

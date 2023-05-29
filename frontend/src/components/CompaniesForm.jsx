@@ -20,6 +20,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useAddCompanyMutation } from "../state/ApiCompany";
 import { enqueueSnackbar } from "notistack";
+import getCurrentData from "../util/getCurrentData";
 
 const citys = [
     "الرياض",
@@ -53,6 +54,8 @@ function CompaniesForm() {
     const [addCompany, { isLoading }] = useAddCompanyMutation()
     const onSubmit = async (data) => {
         try {
+            data.date = getCurrentData()
+            data.time = new Date().toLocaleTimeString()
             await addCompany(data).unwrap()
             reset()
             enqueueSnackbar("تم ارسال البيانات بنجاح")

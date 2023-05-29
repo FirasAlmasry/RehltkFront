@@ -25,6 +25,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAddUserOrderMutation } from "../state/ApiUserOrders";
 import { useGetCountryQuery } from "../state/ApiCountry";
 import { enqueueSnackbar } from "notistack";
+import getCurrentData from "../util/getCurrentData";
 const countrys = [
     "جورجيا ",
     "البوسنة ",
@@ -73,9 +74,11 @@ function TravlForm() {
     const onSubmit = async (data) => {
         try {
             data.bookingFlight = bookingFlight
+            data.date = getCurrentData()
+            data.time = new Date().toLocaleTimeString()
             await addUserOrder(data).unwrap()
-            enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
+            enqueueSnackbar("تم ارسال البيانات بنجاح")
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }
