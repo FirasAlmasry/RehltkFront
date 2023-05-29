@@ -30,8 +30,8 @@ export async function addOrder(data) {
             المدينة: data.address,
             الدولة: data.country,
             "حاجز طيران": data.bookingFlight,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString(),
+            التاريخ: data.date,
+            الوقت: data.time,
         };
         await sheet.addRow(formatedData);
         return true;
@@ -58,8 +58,8 @@ export async function addCoumpanyOrder(data) {
             "البريد الالكتروني": data.email,
             المدينة: data.address,
             الوصف: data.description,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString(),
+            التاريخ: data.date,
+            الوقت: data.time,
         };
         await sheet.addRow(formatedData);
         return true;
@@ -140,8 +140,8 @@ export async function addSales(data) {
             "تكلفة الطيران": data.flightCost,
             "سعر بيع الباكدج": data.packagePrice,
             المدينة: data.city,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString(),
+            التاريخ: data.date,
+            الوقت: data.time,
             الموظف: data.employee,
             "اسم الوكيل": data.agent,
             "المبلغ الذي تم دفعه": data.theAmountPaid,

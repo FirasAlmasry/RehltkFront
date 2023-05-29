@@ -14,7 +14,9 @@ var newUserOrdersValidator = function newUserOrdersValidator(data) {
     // email: Joi.string().email().required(),
     phone: _joi["default"].string().min(4).required(),
     // description: Joi.string().min(4).required(),
-    bookingFlight: _joi["default"].string().required()
+    bookingFlight: _joi["default"].string().required(),
+    date: _joi["default"].string().required(),
+    time: _joi["default"].string().required()
   });
   return schema.validate(data);
 };

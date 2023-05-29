@@ -29,6 +29,7 @@ import { IconButton, InputAdornment } from '@mui/material';
 import { useAddUserMutation, useEditUserMutation } from '../../../state/apiUser';
 import { useState } from 'react';
 import Iconify from '../../../components/iconify';
+import getCurrentData from '../util/getCurrentData';
 // ----------------------------------------------------------------------
 
 UserNewEditForm.propTypes = {
@@ -97,6 +98,8 @@ export default function UserNewEditForm({ isEdit = false, currentUser }) {
   const [addUser, { isLoading }] = useAddUserMutation()
   const onSubmit = async (formData) => {
     try {
+            formData.date = getCurrentData()
+            formData.time = new Date().toLocaleTimeString()
       // eslint-disable-next-line no-lone-blocks
       {
         isEdit ?

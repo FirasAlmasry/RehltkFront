@@ -49,8 +49,8 @@ function _addOrder() {
             المدينة: data.address,
             الدولة: data.country,
             "حاجز طيران": data.bookingFlight,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString()
+            التاريخ: data.date,
+            الوقت: data.time
           };
           _context.next = 10;
           return sheet.addRow(formatedData);
@@ -97,8 +97,8 @@ function _addCoumpanyOrder() {
             "البريد الالكتروني": data.email,
             المدينة: data.address,
             الوصف: data.description,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString()
+            التاريخ: data.date,
+            الوقت: data.time
           };
           _context2.next = 10;
           return sheet.addRow(formatedData);
@@ -238,8 +238,8 @@ function _addSales() {
             "تكلفة الطيران": data.flightCost,
             "سعر بيع الباكدج": data.packagePrice,
             المدينة: data.city,
-            التاريخ: getCurrentData(),
-            الوقت: new Date().toLocaleTimeString(),
+            التاريخ: data.date,
+            الوقت: data.time,
             الموظف: data.employee,
             "اسم الوكيل": data.agent,
             "المبلغ الذي تم دفعه": data.theAmountPaid,

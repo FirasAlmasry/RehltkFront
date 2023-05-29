@@ -34,6 +34,7 @@ import FormProvider, {
     RHFUploadAvatar,
 } from "../../../components/hook-form";
 import { useAddCompanyMutation, useEditCompanyMutation } from "../../../state/ApiCompany";
+import getCurrentData from "../util/getCurrentData";
 
 // ----------------------------------------------------------------------
 
@@ -98,6 +99,8 @@ export default function CompanyNewEditForm({ isEdit = false, currentCompany }) {
     const [editCompany] = useEditCompanyMutation()
     const onSubmit = async (formData) => {
         try {
+            formData.date = getCurrentData()
+            formData.time = new Date().toLocaleTimeString()
             // eslint-disable-next-line no-lone-blocks
             {isEdit?
                await editCompany({formData, id: currentCompany._id}).unwrap()

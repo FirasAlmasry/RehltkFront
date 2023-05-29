@@ -16,6 +16,8 @@ export const newSalesValidator = (data) => {
         returnDate: Joi.date().required(),
         dateOfTravel: Joi.date().required(),
         paymentDate: Joi.date().required(),
+        date: Joi.string().required(),
+        time: Joi.string().required(),
     });
 
     return schema.validate(data);

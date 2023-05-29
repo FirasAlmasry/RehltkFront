@@ -13,7 +13,9 @@ var newCompanyOrdersValidator = function newCompanyOrdersValidator(data) {
     address: _joi["default"].string().min(4).required(),
     email: _joi["default"].string().email().required(),
     phone: _joi["default"].string().min(4).required(),
-    description: _joi["default"].string().min(4).required()
+    description: _joi["default"].string().min(4).required(),
+    date: _joi["default"].string().required(),
+    time: _joi["default"].string().required()
   });
   return schema.validate(data);
 };

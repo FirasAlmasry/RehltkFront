@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { useCallback, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 // form
+
+import { moment } from 'moment';
 import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -43,6 +45,7 @@ import utc from 'dayjs/plugin/utc';
 import { useAddSalesMutation, useEditSalesMutation } from "../../../state/ApiSales";
 import { useGetCountryQuery } from "../../../state/ApiCountry";
 import { useGetEmploymentQuery } from "../../../state/ApiEmployment";
+import getCurrentData from "../util/getCurrentData";
 // ----------------------------------------------------------------------
 
 SalseNewEditForm.propTypes = {
@@ -122,12 +125,17 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
     }, [isEdit, currentSalse]);
     const [addSalse, { isLoading }] = useAddSalesMutation()
     const [editSales, { isSalesLoading }] = useEditSalesMutation()
+    
     const user = JSON.parse(localStorage.getItem('user'))
     const onSubmit = async (formData) => {
         console.log("🚀 ~ file: SalseNewEditForm.js:124 ~ onSubmit ~ formData:", formData)
+        
         try {
             formData.employee = user._id || ''
+            formData.date = getCurrentData()
+            formData.time = new Date().toLocaleTimeString()
             // eslint-disable-next-line no-lone-blocks
+            
             {
                 isEdit
                     ? await editSales({ formData, id: currentSalse._id }).unwrap()
@@ -215,12 +223,14 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                                 control={control}
                                 render={({ field, fieldState: { error } }) => (
                                     <DatePicker
+                                    views={["year", "month", "day"]}
                                         label="return Date"
-                                        value={dayjs.utc(field.value)}
+                                        value={field.value}
                                         onChange={(newValue) => {
                                             field.onChange(newValue);
                                         }}
-                                        format="YYYY/MM/DD"
+                                        
+                                        formatDate={(date) => moment(date).format('DD-MM-YYYY')}
                                         renderInput={(params) => (
                                             <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
                                         )}
@@ -232,12 +242,13 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                                 control={control}
                                 render={({ field, fieldState: { error } }) => (
                                     <DatePicker
+                                    views={["year", "month", "day"]}
                                         label="date Of Travel"
-                                        value={dayjs.utc(field.value)}
+                                        value={field.value}
                                         onChange={(newValue) => {
                                             field.onChange(newValue);
                                         }}
-                                        format="YYYY/MM/DD"
+                                        formatDate={(date) => moment(date).format('DD-MM-YYYY')}
                                         renderInput={(params) => (
                                             <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
                                         )}
@@ -249,12 +260,13 @@ export default function SalseNewEditForm({ isEdit = false, currentSalse }) {
                                 control={control}
                                 render={({ field, fieldState: { error } }) => (
                                     <DatePicker
+                                    views={["year", "month", "day"]}
                                         label="payment Date"
-                                        value={dayjs.utc(field.value)}
+                                        value={field.value}
                                         onChange={(newValue) => {
                                             field.onChange(newValue);
                                         }}
-                                        format="YYYY/MM/DD"
+                                        formatDate={(date) => moment(date).format('DD-MM-YYYY')}
                                         renderInput={(params) => (
                                             <TextField {...params} fullWidth error={!!error} helperText={error?.message} />
                                         )}

@@ -21,7 +21,9 @@ var newSalesValidator = function newSalesValidator(data) {
     depositOrFullPayment: _joi["default"].string().required(),
     returnDate: _joi["default"].date().required(),
     dateOfTravel: _joi["default"].date().required(),
-    paymentDate: _joi["default"].date().required()
+    paymentDate: _joi["default"].date().required(),
+    date: _joi["default"].string().required(),
+    time: _joi["default"].string().required()
   });
   return schema.validate(data);
 };
