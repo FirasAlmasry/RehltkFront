@@ -205,15 +205,7 @@ function CompaniesForm() {
                     fullWidth
                     select
                     placeholder="مدينتك"
-                    defaultValue={"---"}
                     {...register('address')}
-                    // onChange={(e) => setCity(e.target.value)}/**
-                    //  companyName
-                    //  name
-                    //  description
-                    //  email
-                    //  address
-                    //  phone */
                     required
                     sx={{
                         mb: 1,

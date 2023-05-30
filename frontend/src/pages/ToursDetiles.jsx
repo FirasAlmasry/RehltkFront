@@ -26,7 +26,7 @@ function ToursDetiles() {
             <IconSo />
             <img
                 src={tourData.imageUrl}
-                alt=""
+                alt={tourData.title}
                 style={{
                     height: 600,
                     width: "100%",
@@ -64,7 +64,7 @@ function ToursDetiles() {
                 }}></div>
                         {/* {tourData.description} */}
                 </Typography>
-                {/* <SimpleAccordion /> */}
+                <SimpleAccordion />
                 <Section title="أحجز الأن">
                 <TravlForm />
             </Section>

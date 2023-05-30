@@ -8,7 +8,8 @@ export const newCountryToursValidator = (data) => {
     subTitle: Joi.string().min(4).required(),
     price: Joi.number().min(4).required(),
     description: Joi.string().min(4).required(),
-    duration: Joi.string().min(4).required()
+    duration: Joi.string().min(4).required(),
+    days: Joi.any()
   });
 
   return schema.validate(data);

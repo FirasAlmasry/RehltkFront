@@ -37,7 +37,7 @@ export default function TourTableRow({ row, selected, onEditRow, onSelectRow, on
     // - description
     // - price
     // - imageUrl
-    const { country, title, subTitle,  description,price, imageUrl   } = row;
+    const { title, subTitle, price, imageUrl } = row;
 
     const [openConfirm, setOpenConfirm] = useState(false);
 
@@ -73,9 +73,9 @@ export default function TourTableRow({ row, selected, onEditRow, onSelectRow, on
                     </Stack>
                 </TableCell>
                 
-                <TableCell align="left">
+                {/* <TableCell align="left">
                         {description}
-                </TableCell>
+                </TableCell> */}
                 <TableCell align="left">{title}</TableCell>
 
                 <TableCell align="left" sx={{ textTransform: "capitalize" }}>

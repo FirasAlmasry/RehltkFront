@@ -38,7 +38,11 @@ var countryToursSchema = new _mongoose.Schema({
   },
   cloudinary_id: {
     type: String
-  }
+  },
+  days: [{
+    title: String,
+    description: String
+  }]
 }, {
   timestamps: true
 });

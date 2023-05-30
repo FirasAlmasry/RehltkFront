@@ -14,7 +14,8 @@ var newCountryToursValidator = function newCountryToursValidator(data) {
     subTitle: _joi["default"].string().min(4).required(),
     price: _joi["default"].number().min(4).required(),
     description: _joi["default"].string().min(4).required(),
-    duration: _joi["default"].string().min(4).required()
+    duration: _joi["default"].string().min(4).required(),
+    days: _joi["default"].any()
   });
   return schema.validate(data);
 };

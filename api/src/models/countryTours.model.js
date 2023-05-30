@@ -34,6 +34,10 @@ const countryToursSchema = new Schema(
         cloudinary_id: {
             type: String,
         },
+        days: [{
+            title: String,
+            description: String,
+        }]
     },
     {
         timestamps: true,

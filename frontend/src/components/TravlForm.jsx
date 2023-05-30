@@ -147,30 +147,6 @@ function TravlForm() {
                         borderBottom: "1px solid",
                     }}
                 />
-                {/* <Box display={"flex"} gap={2} alignItems={"center"}>
-                    <EmailOutlinedIcon /> */}
-                    {/* <Typography
-                        variant="h6"
-                        component="h3"
-                        sx={{
-                            mb: 1,
-                            maxWidth: 600,
-                        }}
-                    >
-                        البريد الالكتروني:
-                    </Typography>
-                </Box>
-                <TextField
-                    type={"emile"}
-                    fullWidth
-                    required
-                    {...register('email')}
-                    sx={{
-                        mb: 1,
-                        backgroundColor: "#FFF",
-                        borderBottom: "1px solid",
-                    }}
-                /> */}
                 <Box display={"flex"} gap={2} alignItems={"center"}>
                     <LocationOnOutlinedIcon />
                     <Typography
@@ -188,7 +164,6 @@ function TravlForm() {
                     fullWidth
                     select
                     placeholder="مدينتك"
-                    defaultValue={"---"}
                     {...register('address')}
                     required
                     sx={{
@@ -220,7 +195,6 @@ function TravlForm() {
                     fullWidth
                     select
                     placeholder="وين حاب تسافر"
-                    defaultValue={"---"}
                     {...register('country')}
                     required
                     sx={{

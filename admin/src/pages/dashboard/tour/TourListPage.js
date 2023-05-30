@@ -57,7 +57,7 @@ const ROLE_TOUR = ["all", "activ", "unActiv"];
 const TABLE_HEAD = [
     // { id: "country", label: "country", align: "left" },
     { id: "imageUrl", label: "Image", align: "left" },
-    { id: "description", label: "Description", align: "left" },
+    // { id: "description", label: "Description", align: "left" },
     { id: 'title', label: 'Title', align: 'left' },
     { id: 'subTitle', label: 'Sub Title', align: 'left' },
     { id: 'price', label: 'price', align: 'left' },

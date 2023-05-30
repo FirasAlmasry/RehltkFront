@@ -1,0 +1,2 @@
+Delete Form city And Country default values
+Add array Days In Tour Model And validate 

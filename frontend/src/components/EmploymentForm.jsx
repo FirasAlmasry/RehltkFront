@@ -182,7 +182,6 @@ function EmploymentForm() {
                     fullWidth
                     select
                     placeholder="مدينتك"
-                    defaultValue={"---"}
                     {...register('address')}
                     // onChange={(e) => setCity(e.target.value)}/**
                     //  companyName

@@ -107,45 +107,47 @@ var createCountryTours = /*#__PURE__*/function () {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
           _context3.prev = 0;
-          _context3.next = 3;
+          req.body.days = JSON.parse(req.body.days) || [];
+          _context3.next = 4;
           return CountryToursService.isCreateCountryToursDataValide(req.body);
-        case 3:
+        case 4:
           if (!(((_req$file = req.file) === null || _req$file === void 0 ? void 0 : _req$file.path) !== undefined)) {
-            _context3.next = 9;
+            _context3.next = 10;
             break;
           }
-          _context3.next = 6;
+          _context3.next = 7;
           return _cloudinary["default"].uploader.upload(req.file.path, {
             folder: "Tours"
           });
-        case 6:
+        case 7:
           result = _context3.sent;
           req.body.imageUrl = result.secure_url;
           req.body.cloudinary_id = result.public_id;
-        case 9:
-          _context3.next = 11;
+        case 10:
+          _context3.next = 12;
           return CountryToursService.createCountryTours(req.body);
-        case 11:
+        case 12:
           _data3 = _context3.sent;
-          _context3.next = 14;
+          console.log(_data3);
+          _context3.next = 16;
           return (0, _country.addCountryToursToArray)(_data3.country, _data3._id);
-        case 14:
+        case 16:
           res.status(_httpStatusCodes["default"].CREATED).json({
             code: _httpStatusCodes["default"].CREATED,
             data: _data3,
             message: "Country Tours created successfully"
           });
-          _context3.next = 20;
+          _context3.next = 22;
           break;
-        case 17:
-          _context3.prev = 17;
+        case 19:
+          _context3.prev = 19;
           _context3.t0 = _context3["catch"](0);
           next(_context3.t0);
-        case 20:
+        case 22:
         case "end":
           return _context3.stop();
       }
-    }, _callee3, null, [[0, 17]]);
+    }, _callee3, null, [[0, 19]]);
   }));
   return function createCountryTours(_x7, _x8, _x9) {
     return _ref3.apply(this, arguments);
@@ -166,40 +168,41 @@ var updateCountryTours = /*#__PURE__*/function () {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
           _context4.prev = 0;
-          _context4.next = 3;
+          req.body.days = JSON.parse(req.body.days) || [];
+          _context4.next = 4;
           return CountryToursService.isCreateCountryToursDataValide(req.body);
-        case 3:
-          _context4.next = 5;
+        case 4:
+          _context4.next = 6;
           return CountryToursService.getCountryToursById(req.params.id);
-        case 5:
+        case 6:
           excistCountryTours = _context4.sent;
           if (!(((_req$file2 = req.file) === null || _req$file2 === void 0 ? void 0 : _req$file2.path) !== undefined)) {
-            _context4.next = 9;
+            _context4.next = 10;
             break;
           }
-          _context4.next = 9;
+          _context4.next = 10;
           return CountryToursService.uplodeHelper(req, excistCountryTours.cloudinary_id);
-        case 9:
-          _context4.next = 11;
+        case 10:
+          _context4.next = 12;
           return CountryToursService.updateCountryTours(req.params.id, req.body);
-        case 11:
+        case 12:
           _data4 = _context4.sent;
           res.status(_httpStatusCodes["default"].ACCEPTED).json({
             code: _httpStatusCodes["default"].ACCEPTED,
             data: _data4,
             message: "CountryTours updated successfully"
           });
-          _context4.next = 18;
+          _context4.next = 19;
           break;
-        case 15:
-          _context4.prev = 15;
+        case 16:
+          _context4.prev = 16;
           _context4.t0 = _context4["catch"](0);
           next(_context4.t0);
-        case 18:
+        case 19:
         case "end":
           return _context4.stop();
       }
-    }, _callee4, null, [[0, 15]]);
+    }, _callee4, null, [[0, 16]]);
   }));
   return function updateCountryTours(_x10, _x11, _x12) {
     return _ref4.apply(this, arguments);

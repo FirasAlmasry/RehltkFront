@@ -54,6 +54,8 @@ export const getCountryToursById = async (req, res, next) => {
  */
 export const createCountryTours = async (req, res, next) => {
     try {
+
+        req.body.days = JSON.parse(req.body.days) || [];
         await CountryToursService.isCreateCountryToursDataValide(req.body);
         if (req.file?.path !== undefined) {
             const result = await cloudinary.uploader.upload(req.file.path, {
@@ -65,6 +67,7 @@ export const createCountryTours = async (req, res, next) => {
         }
 
         const data = await CountryToursService.createCountryTours(req.body);
+        console.log(data)
         await addCountryToursToArray(data.country, data._id);
         res.status(HttpStatus.CREATED).json({
             code: HttpStatus.CREATED,
@@ -84,6 +87,7 @@ export const createCountryTours = async (req, res, next) => {
  */
 export const updateCountryTours = async (req, res, next) => {
     try {
+        req.body.days = JSON.parse(req.body.days) || [];
         await CountryToursService.isCreateCountryToursDataValide(req.body);
         const excistCountryTours =
             await CountryToursService.getCountryToursById(req.params.id);
