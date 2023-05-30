@@ -399,7 +399,7 @@ function applyFilter({
     if (filterName) {
         inputData = inputData.filter(
             (user) =>
-                user.title.ar
+                user.name
                     .toLowerCase()
                     .indexOf(filterName.toLowerCase()) !== -1
         );

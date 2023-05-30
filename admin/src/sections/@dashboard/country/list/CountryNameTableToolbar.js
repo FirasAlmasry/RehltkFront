@@ -4,7 +4,7 @@ import {
     Stack,
     InputAdornment,
     TextField,
-    // MenuItem,
+    MenuItem,
     Button,
 } from "@mui/material";
 // components
@@ -19,14 +19,14 @@ CountryTableToolbar.propTypes = {
     onFilterName: PropTypes.func,
     onFilterRole: PropTypes.func,
     onResetFilter: PropTypes.func,
-    // optionsRole: PropTypes.arrayOf(PropTypes.string),
+    optionsRole: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default function CountryTableToolbar({
     isFiltered,
     filterName,
     filterRole,
-    // optionsRole,
+    optionsRole,
     onFilterName,
     onFilterRole,
     onResetFilter,
