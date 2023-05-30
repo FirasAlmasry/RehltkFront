@@ -33,8 +33,8 @@ var userOrdersSchema = new _mongoose.Schema({
     require: true
   },
   bookingFlight: {
-    type: String,
-    require: true
+    type: String
+    // require: true,
   }
 }, {
   timestamps: true

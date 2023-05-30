@@ -29,7 +29,7 @@ const userOrdersSchema = new Schema(
         },
         bookingFlight: {
             type: String,
-            require: true,
+            // require: true,
         },
     },
     {

@@ -68,12 +68,13 @@ function TravlForm() {
     const { register, handleSubmit, reset, formState: { errors }, control } = useForm({
         resolver: yupResolver(NewComplaintSchema),
     });
-    const [bookingFlight, setBookingFlight] = useState(null);
+    const [bookingFlight, setBookingFlight] = useState("null");
     const { data, isLoading: isCountryLoading } = useGetCountryQuery()
     const [addUserOrder, { isLoading }] = useAddUserOrderMutation()
     const onSubmit = async (data) => {
+        console.log("🚀 ~ file: TravlForm.jsx:75 ~ onSubmit ~ data:", data)
         try {
-            data.bookingFlight = bookingFlight
+            data.bookingFlight = bookingFlight || ""
             data.date = getCurrentData()
             data.time = new Date().toLocaleTimeString()
             await addUserOrder(data).unwrap()
@@ -247,7 +248,7 @@ function TravlForm() {
                     </Typography>
                 <FormControl
                     color="secondary"
-                    required
+                    // required
                     onChange={(e) => setBookingFlight(e.target.value)}
                 >
                     <RadioGroup row name="bookingFlight">
