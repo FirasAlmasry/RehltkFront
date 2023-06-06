@@ -24,9 +24,9 @@ function Home() {
             <Section title="حساباتنا">
                 <SotialIcon />
             </Section>
-            <Section title="المدونة">
+            {/* <Section title="المدونة">
                 <CardBlog />
-            </Section>
+            </Section> */}
             <Section title="أحجز الأن">
                 <TravlForm />
             </Section>

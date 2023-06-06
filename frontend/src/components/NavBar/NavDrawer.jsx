@@ -67,7 +67,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                     fontWeight: "bold",
                                 }}
                             >
-                                المدونة
+                                مجلة سياحية
                             </Link>
                         <Link
                             to="/complaint"

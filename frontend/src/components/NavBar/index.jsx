@@ -76,7 +76,7 @@ function NavBar() {
                                     fontWeight: "bold",
                                 }}
                             >
-                                المدونة
+                                مجلة سياحية
                             </Link>
                             <Link
                                 to="/complaint"
