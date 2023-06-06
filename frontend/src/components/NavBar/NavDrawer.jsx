@@ -30,6 +30,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             الصفحة الرئيسية
                         </Link>
@@ -41,6 +42,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             حجز برامج سياحية
                         </Link>
@@ -52,9 +54,21 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             من نحن
                         </Link>
+                            <Link
+                                to="/blog"
+                                style={{
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: 15,
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                المدونة
+                            </Link>
                         <Link
                             to="/complaint"
                             style={{
@@ -63,6 +77,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             ارسال شكوى
                         </Link>
@@ -74,6 +89,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             طلبات الشركات
                         </Link>
@@ -85,6 +101,7 @@ export default function NavDrawer({ setDrawer, drawer }) {
                                 fontSize: 15,
                                 fontWeight: "bold",
                             }}
+                            onClick={() => setDrawer(false)}
                         >
                             توظيف
                         </Link>

@@ -18,8 +18,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useAddComplaintMutation } from "../state/ApiComplaint";
 import { enqueueSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
 
 function ComplaintForm() {
+    const navigate = useNavigate()
+
     const NewComplaintSchema = Yup.object().shape({
         name: Yup.string().required("name ar is required"),
         description :Yup.string().required("description ar is required"),
@@ -39,6 +42,7 @@ function ComplaintForm() {
             await addComplaint(data).unwrap()
             reset()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
+            navigate('/done')
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }

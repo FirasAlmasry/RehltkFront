@@ -21,6 +21,7 @@ import axios from "axios";
 import { useAddCompanyMutation } from "../state/ApiCompany";
 import { enqueueSnackbar } from "notistack";
 import getCurrentData from "../util/getCurrentData";
+import { useNavigate } from "react-router-dom";
 
 const citys = [
     "الرياض",
@@ -36,6 +37,8 @@ const citys = [
 ];
 
 function CompaniesForm() {
+    const navigate = useNavigate()
+
     const NewComplaintSchema = Yup.object().shape({
         companyName: Yup.string().required("companyName ar is required"),
         name: Yup.string().required("name ar is required"),
@@ -60,6 +63,7 @@ function CompaniesForm() {
             reset()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
             reset()
+            navigate('/done')
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }

@@ -26,6 +26,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAddEmploymentMutation } from "../state/ApiEmployment";
 import { enqueueSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
 
 const citys = [
     "الرياض",
@@ -41,6 +42,8 @@ const citys = [
 ];
 
 function EmploymentForm() {
+    const navigate = useNavigate()
+
     const NewComplaintSchema = Yup.object().shape({
         name: Yup.string().required("title ar is required"),
         description :Yup.string().required("description ar is required"),
@@ -61,6 +64,7 @@ function EmploymentForm() {
             await addEmployment(data).unwrap()
             reset()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
+            navigate('/done')
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }

@@ -26,6 +26,7 @@ import { useAddUserOrderMutation } from "../state/ApiUserOrders";
 import { useGetCountryQuery } from "../state/ApiCountry";
 import { enqueueSnackbar } from "notistack";
 import getCurrentData from "../util/getCurrentData";
+import { useNavigate } from "react-router-dom";
 const countrys = [
     "جورجيا ",
     "البوسنة ",
@@ -57,6 +58,7 @@ const citys = [
 ];
 
 function TravlForm() {
+    const navigate = useNavigate()
     const NewComplaintSchema = Yup.object().shape({
         // name: Yup.string().required("title ar is required"),
         // description: Yup.string().required("description ar is required"),
@@ -80,6 +82,8 @@ function TravlForm() {
             await addUserOrder(data).unwrap()
             reset()
             enqueueSnackbar("تم ارسال البيانات بنجاح")
+            navigate('/done')
+            
         } catch (error) {
             enqueueSnackbar(error.data.message, {variant: 'error'});
         }

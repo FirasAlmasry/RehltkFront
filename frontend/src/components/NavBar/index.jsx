@@ -68,6 +68,17 @@ function NavBar() {
                                 من نحن
                             </Link>
                             <Link
+                                to="/blog"
+                                style={{
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: 15,
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                المدونة
+                            </Link>
+                            <Link
                                 to="/complaint"
                                 style={{
                                     color: "inherit",

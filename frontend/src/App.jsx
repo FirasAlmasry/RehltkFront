@@ -18,6 +18,8 @@ import CardBlogDescMostar from "./components/CardBlogDescMostar";
 import LssuingTouristVisas from "./pages/OtherServise/LssuingTouristVisas";
 import InternationalLicense from "./pages/OtherServise/InternationalLicense";
 import BookingFlight from "./pages/OtherServise/BookingFlight";
+import AllBlog from "./pages/AllBlog";
+import SupmitDone from "./components/SupmitDone";
 
 function App() {
     return (
@@ -34,6 +36,8 @@ function App() {
                 <Route path="/tours/:id" element={<NestTour />} />
                 <Route path="/tourCity/:id" element={<NestTourCard />} />
                 <Route path="/tourDetails/:id" element={<ToursDetiles />} />
+                <Route path="/blog" element={<AllBlog />} />
+                <Route path="/done" element={<SupmitDone />} />
                 <Route path="/blog/aoruba" element={<CardBlogDesc />} />
                 <Route path="/blog/barshlona" element={<CardBlogDescBar />} />
                 <Route path="/blog/bhre" element={<CardBlogDescBhre />} />
